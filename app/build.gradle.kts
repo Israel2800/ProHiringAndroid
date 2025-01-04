@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.israelaguilar.prohiringandroid"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.israelaguilar.prohiringandroid"

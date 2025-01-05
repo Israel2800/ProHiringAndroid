@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "94451049041",
+    "project_id": "prohiring-12396",
+    "storage_bucket": "prohiring-12396.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:94451049041:android:6e86fe1cceaefa579b4e70",
+        "android_client_info": {
+          "package_name": "com.israelaguilar.prohiringandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "94451049041-geme71hses6e92rjn2l6jduhj570ru0u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDu76S-0RnHg0S1ifCg8CvYJ6hiURniXD8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "94451049041-50197ktt7re8rl5bparug77peq0jroji.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "94451049041-41uf50m27kr37coqth7k1hr10bumnsj5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.israelaguilar-ddadm12.ProHiring"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

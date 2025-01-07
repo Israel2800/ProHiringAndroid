@@ -88,6 +88,15 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.storage)
 
+    implementation(libs.material.v1110)
+    //implementation(libs.androidx.navigation.fragment)
+
+    // Dependencias de navegación
+    implementation (libs.androidx.navigation.fragment.ktx.v260)
+    implementation (libs.androidx.navigation.ui.ktx.v260)
+    implementation(libs.androidx.navigation.fragment)
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

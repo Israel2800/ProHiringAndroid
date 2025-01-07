@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.ServicesSectionsFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_games_list" />
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.GamesListFragment"
+        android:label="Search" />
+    <!--<fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.example.app.ThirdFragment"
+        android:label="Profile" />-->
+</navigation>

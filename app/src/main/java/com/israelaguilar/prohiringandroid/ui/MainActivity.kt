@@ -12,6 +12,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.israelaguilar.prohiringandroid.R
 import com.israelaguilar.prohiringandroid.databinding.ActivityMainBinding
 import com.israelaguilar.prohiringandroid.ui.fragments.GamesListFragment
@@ -30,6 +34,8 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel by viewModels<MainViewModel>()
 
+
+
     /*private lateinit var repository: GameRepository
     private lateinit var retrofit: Retrofit*/
 
@@ -38,6 +44,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Obtener el NavController del NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+        // Vincula el BottomNavigationView con el NavController
+        bottomNavigationView.setupWithNavController(navController)
 
         // Pasamos la orientación en portrait
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT

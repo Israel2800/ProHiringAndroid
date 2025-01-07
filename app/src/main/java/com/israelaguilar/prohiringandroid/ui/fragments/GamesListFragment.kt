@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.israelaguilar.prohiringandroid.R
-import com.israelaguilar.prohiringandroid.application.VideoGamesRFApp
+import com.israelaguilar.prohiringandroid.application.ProHiringApp
 import com.israelaguilar.prohiringandroid.data.TreeServiceRepository
 import com.israelaguilar.prohiringandroid.data.remote.model.TreeServiceDto
 import com.israelaguilar.prohiringandroid.databinding.FragmentGamesListBinding
@@ -42,7 +42,7 @@ class GamesListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        repository = (requireActivity().application as VideoGamesRFApp).repository
+        repository = (requireActivity().application as ProHiringApp).repository
 
         setupRecyclerView()
         loadData()

@@ -19,7 +19,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.israelaguilar.prohiringandroid.R
-import com.israelaguilar.prohiringandroid.application.VideoGamesRFApp
 import com.israelaguilar.prohiringandroid.data.TreeServiceRepository
 import com.israelaguilar.prohiringandroid.data.remote.model.TreeServiceDetailDto
 import com.israelaguilar.prohiringandroid.databinding.FragmentGameDetailBinding
@@ -33,6 +32,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.israelaguilar.prohiringandroid.application.ProHiringApp
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import retrofit2.Call
@@ -120,7 +120,7 @@ class GameDetailFragment : Fragment(), OnMapReadyCallback, LocationListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        repository = (requireActivity().application as VideoGamesRFApp).repository
+        repository = (requireActivity().application as ProHiringApp).repository
         fetchGameDetails()
         initializeMap()
         lifecycle.addObserver(binding.ytPlayerView)

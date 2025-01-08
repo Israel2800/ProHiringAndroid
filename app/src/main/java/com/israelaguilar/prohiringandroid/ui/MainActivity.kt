@@ -12,6 +12,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -27,6 +28,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var networkReceiver: NetworkReceiver
+    private  lateinit  var navController: NavController
+
 
     private lateinit var firebaseAuth: FirebaseAuth
     private var user: FirebaseUser? = null
@@ -45,14 +48,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         // Obtener el NavController del NavHostFragment
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
-        val navController = navHostFragment.navController
+        navController = navHostFragment.navController
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         // Vincula el BottomNavigationView con el NavController
         bottomNavigationView.setupWithNavController(navController)
+
+
+
+        //val navController = findNavController(R.id.nav_host_fragment)
+        //val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav)
+        //bottomNav.setupWithNavController(navController)
+
+
 
         // Pasamos la orientación en portrait
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
@@ -111,11 +123,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         //Mostramos el fragment inicial GamesListFragment
+        /*
         if(savedInstanceState == null){
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, GamesListFragment())
                 .commit()
         }
+        */
 
         binding.btnCerrarSesion.setOnClickListener {
             firebaseAuth.signOut()
@@ -129,6 +143,20 @@ class MainActivity : AppCompatActivity() {
             reloadData()
         }
 
+    }
+
+    // Sobrescribir el comportamiento del botón de retroceso
+    override fun onBackPressed() {
+        val navController = findNavController(R.id.bottom_navigation)
+
+        // Verificamos si estamos en el fragmento 'secondFragment' o el fragmento que desees
+        if (navController.currentDestination?.id == R.id.secondFragment) {
+            // Si estamos en el segundo fragmento, eliminamos ese fragmento de la pila de retroceso
+            supportFragmentManager.popBackStack()
+        } else {
+            // Si no estamos en ese fragmento, usamos el comportamiento por defecto
+            super.onBackPressed()
+        }
     }
 
     override fun onStart() {

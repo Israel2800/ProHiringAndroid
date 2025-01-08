@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.israelaguilar.prohiringandroid.R
 import com.israelaguilar.prohiringandroid.application.ProHiringApp
@@ -46,6 +48,7 @@ class GamesListFragment : Fragment() {
 
         setupRecyclerView()
         loadData()
+
 
         // Configurar el receptor de red
         networkReceiver = NetworkReceiver { onConnectionRestored() }

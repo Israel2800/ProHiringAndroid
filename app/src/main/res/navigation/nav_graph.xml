@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,13 +7,56 @@
         android:id="@+id/firstFragment"
         android:name="com.israelaguilar.prohiringandroid.ui.fragments.ServicesSectionsFragment"
         android:label="Home"
+        tools:layout="@layout/fragment_services_sections">
+
+        <action
+            android:id="@+id/action_servicesSectionsFragment_to_treeServicesFragment"
+            app:destination="@id/treeServicesFragment" />
+        <action
+            android:id="@+id/action_servicesSectionsFragment_to_handymanServicesFragment"
+            app:destination="@id/handymanServicesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/treeServicesFragment"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.GamesListFragment"
+        android:label="Tree Services"
         tools:layout="@layout/fragment_games_list" />
+
+    <fragment
+        android:id="@+id/handymanServicesFragment"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.ServicesSectionsFragment"
+        android:label="Handyman Services"
+        tools:layout="@layout/fragment_services_sections" />
+
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.israelaguilar.prohiringandroid.ui.fragments.GamesListFragment"
-        android:label="Search" />
-    <!--<fragment
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.ServicesSectionsFragment"
+        android:label="Handyman Services"
+        tools:layout="@layout/fragment_services_sections" >
+        <action
+            android:id="@+id/action_secondFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/thirdFragment"
-        android:name="com.example.app.ThirdFragment"
-        android:label="Profile" />-->
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.CompaniesFragment"
+        android:label="Companies"
+        tools:layout="@layout/fragment_companies">
+
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.MyProjects"
+        android:label="MyProjects"
+        tools:layout="@layout/fragment_my_projects">
+
+
+    </fragment>
+
+
 </navigation>

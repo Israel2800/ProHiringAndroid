@@ -51,6 +51,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -92,9 +93,8 @@ dependencies {
     //implementation(libs.androidx.navigation.fragment)
 
     // Dependencias de navegación
-    implementation (libs.androidx.navigation.fragment.ktx.v260)
-    implementation (libs.androidx.navigation.ui.ktx.v260)
-    implementation(libs.androidx.navigation.fragment)
+    implementation (libs.androidx.navigation.fragment.ktx.v273)
+    implementation (libs.androidx.navigation.ui.ktx.v273) // For BottomNavigationView or Toolbar integration
 
 
     testImplementation(libs.junit)

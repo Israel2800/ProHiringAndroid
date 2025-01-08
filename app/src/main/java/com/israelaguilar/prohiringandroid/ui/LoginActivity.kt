@@ -74,6 +74,8 @@ class LoginActivity : AppCompatActivity() {
 
         // Botón para registrarse
         binding.btnRegistrarse.setOnClickListener {
+
+            /*
             if(!validateFields()) return@setOnClickListener
 
             // Mostramos el progress bar
@@ -95,6 +97,14 @@ class LoginActivity : AppCompatActivity() {
                     handleErrors(authResult)
                 }
             }
+             */
+
+            // Botón para registrarse
+                // Inicia CreateAccountActivity
+                val intent = Intent(this, CreateAccountActivity::class.java)
+                startActivity(intent)
+
+
 
         }
 

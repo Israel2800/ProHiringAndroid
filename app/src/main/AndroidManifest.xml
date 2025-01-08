@@ -3,11 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-
         android:name=".application.ProHiringApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -18,14 +17,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProHiringAndroid"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.CreateAccountActivity"
+            android:exported="false" />
 
-        <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
 
         <activity
             android:name=".ui.LoginActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,7 +38,6 @@
         <activity
             android:name=".ui.MainActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>

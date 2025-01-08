@@ -108,6 +108,13 @@ class LoginActivity : AppCompatActivity() {
 
         }
 
+        // Botón para iniciar sesión como empresa
+        binding.btnSignInPro.setOnClickListener {
+            // Inicia CompanyLoginActivity
+            val intent = Intent(this, CompanyLoginActivity::class.java)
+            startActivity(intent)
+        }
+
         // Texto para recuperar contraseña
         binding.tvRestablecerPassword.setOnClickListener {
             val resetMail = EditText(this)

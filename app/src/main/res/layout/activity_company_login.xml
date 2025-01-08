@@ -5,8 +5,7 @@
     android:id="@+id/login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context="ui.LoginActivity">
+    android:background="@color/white">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -41,11 +40,24 @@
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:gravity="center" />
+
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Sign in as a Pro"
+                android:layout_marginHorizontal="@dimen/sixteen"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="start" />
 
             <!-- ProgressBar in the center -->
             <ProgressBar
-                android:id="@+id/progressBar"
+                android:id="@+id/progressBarCL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -63,7 +75,7 @@
                 app:startIconDrawable="@drawable/ic_email">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tietEmail"
+                    android:id="@+id/accountFieldCL"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress" />
@@ -80,7 +92,7 @@
                 app:startIconDrawable="@drawable/ic_lock">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tietContrasenia"
+                    android:id="@+id/passwordFieldCL"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword" />
@@ -88,7 +100,7 @@
 
             <!-- Login Button -->
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnLogin"
+                android:id="@+id/loginButtonCL"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_margin="16dp"
@@ -100,7 +112,7 @@
 
             <!-- Forgot Password -->
             <TextView
-                android:id="@+id/tvRestablecerPassword"
+                android:id="@+id/forgotPasswordCL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -124,7 +136,7 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/btnRegistrarse"
+                    android:id="@+id/createNewAccountCL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/btn_register"
@@ -137,23 +149,24 @@
             </LinearLayout>
 
             <!-- Divider -->
-            <View
+        <!--    <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_margin="16dp"
-                android:background="@color/gray" />
+                android:background="@color/gray" />-->
 
             <!-- Footer Button -->
-            <Button
-                android:id="@+id/btnSignInPro"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSignInUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                android:text="Are you a Pro?"
+                android:text="Sign in as a user"
                 android:textColor="@color/card_color_bg"
                 android:background="@android:color/transparent"
                 android:textStyle="bold" />
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

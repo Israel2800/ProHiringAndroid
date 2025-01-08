@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Línea superior con nombre y botón de cerrar sesión -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start|end"
+        android:paddingBottom="16dp">
+
+        <!-- Nombre de ProHiring alineado a la izquierda -->
+        <TextView
+            android:id="@+id/proHiringLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ProHiring"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_color"
+            android:layout_gravity="start"
+            android:paddingEnd="8dp"/>
+
+        <!-- Botón de Cerrar sesión alineado a la derecha -->
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cerrar sesión"
+            android:textSize="14sp"
+            android:layout_gravity="end"
+            android:background="?android:attr/selectableItemBackground"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/card_color_bg"/>
+    </LinearLayout>
+
+    <!-- Nombre de la empresa centrado y en negritas -->
+    <TextView
+        android:id="@+id/companyNameLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Company Name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingTop="8dp"/>
+
+    <!-- Logo de la compañía centrado -->
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="12dp"
+        android:src="@drawable/house"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Servicios con icono de martillo -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:paddingTop="16dp">
+
+        <ImageView
+            android:src="@drawable/house"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="8dp"/>
+
+        <TextView
+            android:id="@+id/servicesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Services"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="start"/>
+
+
+    </LinearLayout>
+
+    <!-- Datos de Servicios -->
+    <TextView
+        android:id="@+id/servicesDataLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Service details from Firebase"
+        android:textSize="16sp"
+        android:paddingTop="8dp"/>
+
+    <!-- Redes sociales con icono de usuarios -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:paddingTop="16dp">
+
+        <ImageView
+            android:src="@drawable/house"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="8dp"/>
+
+        <TextView
+            android:id="@+id/socialMediaLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Social Media"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="start"/>
+
+
+    </LinearLayout>
+
+    <!-- Datos de Redes Sociales -->
+    <TextView
+        android:id="@+id/socialMediaDataLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Social media details from Firebase"
+        android:textSize="16sp"
+        android:paddingTop="8dp"/>
+
+    <!-- Contacto con icono de teléfono -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:paddingTop="16dp">
+
+        <ImageView
+            android:src="@drawable/house"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="8dp"/>
+
+        <TextView
+            android:id="@+id/contactLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact Information"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="start"/>
+
+
+    </LinearLayout>
+
+    <!-- Datos de Contacto -->
+    <TextView
+        android:id="@+id/contactDataLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contact info from Firebase"
+        android:textSize="16sp"
+        android:paddingTop="8dp"/>
+
+    <!-- Email con icono de email -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:paddingTop="16dp">
+
+        <ImageView
+            android:src="@drawable/ic_email"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginHorizontal="8dp"/>
+
+        <TextView
+            android:id="@+id/emailLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="start"/>
+
+
+    </LinearLayout>
+
+    <!-- Datos de Email -->
+    <TextView
+        android:id="@+id/emailDataLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email info from Firebase"
+        android:textSize="16sp"
+        android:paddingTop="8dp"/>
+</LinearLayout>

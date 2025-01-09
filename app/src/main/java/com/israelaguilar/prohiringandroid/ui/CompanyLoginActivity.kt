@@ -6,13 +6,13 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.auth.FirebaseUser
 import com.israelaguilar.prohiringandroid.R
-import com.google.android.material.button.MaterialButton
 
 
 class CompanyLoginActivity : AppCompatActivity() {
@@ -21,8 +21,8 @@ class CompanyLoginActivity : AppCompatActivity() {
     private lateinit var accountField: EditText
     private lateinit var passwordField: EditText
     private lateinit var loginButton: Button
-    private lateinit var forgotPasswordButton: Button
-    private lateinit var createNewAccountButton: Button
+    private lateinit var forgotPasswordButton: TextView
+    private lateinit var createNewAccountButton: TextView
     private lateinit var progressBar: ProgressBar
     private lateinit var btnSignInUser: Button
 

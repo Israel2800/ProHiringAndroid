@@ -154,7 +154,7 @@
             android:layout_gravity="start"/>
 
         <TextView
-            android:id="@+id/signInTextView"
+            android:id="@+id/signInBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign in"

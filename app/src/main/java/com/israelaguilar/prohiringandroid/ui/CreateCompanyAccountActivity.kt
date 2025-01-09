@@ -33,6 +33,7 @@ class CreateCompanyAccountActivity : AppCompatActivity() {
     private lateinit var contactField: TextInputEditText
     private lateinit var progressBar: ProgressBar
     private lateinit var auth: FirebaseAuth
+    private lateinit var signInBtn: TextView
 
     private val PICK_IMAGE_REQUEST = 71
     private var imageUri: Uri? = null
@@ -49,8 +50,11 @@ class CreateCompanyAccountActivity : AppCompatActivity() {
         socialMediaField = findViewById(R.id.socialMediaFieldC)
         contactField = findViewById(R.id.contactFieldC)
         progressBar = findViewById(R.id.activityIndicator)
+        signInBtn = findViewById(R.id.signInBtn)
 
         auth = FirebaseAuth.getInstance()
+
+        signInBtn.setOnClickListener { signInBtn() }
 
         findViewById<Button>(R.id.selectLogoButton).setOnClickListener {
             openImageChooser()
@@ -133,7 +137,7 @@ class CreateCompanyAccountActivity : AppCompatActivity() {
         val companyData = hashMapOf(
             "logoURL" to logoUrl,
             "companyName" to companyName,
-            "email" to emailField.text.toString(),
+            "name" to emailField.text.toString(),
             "services" to services,
             "socialMedia" to socialMedia,
             "contact" to contact
@@ -156,6 +160,11 @@ class CreateCompanyAccountActivity : AppCompatActivity() {
         intent.putExtra("COMPANY_ID", companyId)
         startActivity(intent)
         finish()  // Cierra la actividad de creación de cuenta
+    }
+
+    private fun signInBtn(){
+        val intent = Intent(this, CompanyLoginActivity::class.java)
+        startActivity(intent)
     }
 
     /*

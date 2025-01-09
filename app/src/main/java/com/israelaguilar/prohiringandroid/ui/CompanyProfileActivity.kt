@@ -58,7 +58,7 @@ class CompanyProfileActivity : AppCompatActivity() {
                     val services = document.getString("services")
                     val socialMedia = document.getString("socialMedia")
                     val contact = document.getString("contact")
-                    val email = document.getString("email")
+                    val email = document.getString("name")
                     val logoURL = document.getString("logoURL")
 
                     // Mostrar los datos en las vistas

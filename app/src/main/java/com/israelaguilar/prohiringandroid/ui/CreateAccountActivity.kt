@@ -2,15 +2,12 @@ package com.israelaguilar.prohiringandroid.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
-import com.israelaguilar.prohiringandroid.R
 import com.israelaguilar.prohiringandroid.databinding.ActivityCreateAccountBinding
 
 class CreateAccountActivity : AppCompatActivity() {
@@ -61,32 +58,10 @@ class CreateAccountActivity : AppCompatActivity() {
                 }
         }
 
-        //binding.createAccountGoogleBtn.setOnClickListener { signInWithGoogle() }
-
-        binding.eyeToggleBtn.setOnClickListener {
-            togglePasswordVisibility()
-        }
-
         // Configura el botón de regreso a Login
         binding.signInBtn.setOnClickListener {
             navigateToLogin()
         }
-    }
-
-    /*
-    private fun signInWithGoogle() {
-        val signInIntent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
-    }
-     */
-    private fun togglePasswordVisibility() {
-        val isSecure = binding.passwordField.inputType == InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-        binding.passwordField.inputType = if (isSecure) {
-            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-        } else {
-            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-        }
-        binding.passwordField.setSelection(binding.passwordField.text.length)
     }
 
     private fun isValidEmail(email: String) = Patterns.EMAIL_ADDRESS.matcher(email).matches()

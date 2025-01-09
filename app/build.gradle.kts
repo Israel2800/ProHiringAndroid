@@ -89,12 +89,13 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.storage)
 
-    implementation(libs.material.v1110)
+    //implementation(libs.material.v1110)
     //implementation(libs.androidx.navigation.fragment)
 
     // Dependencias de navegación
     implementation (libs.androidx.navigation.fragment.ktx.v273)
     implementation (libs.androidx.navigation.ui.ktx.v273) // For BottomNavigationView or Toolbar integration
+    implementation (libs.material.v121)
 
 
     testImplementation(libs.junit)

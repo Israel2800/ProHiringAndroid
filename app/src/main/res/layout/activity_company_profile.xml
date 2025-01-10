@@ -14,18 +14,19 @@
         android:paddingBottom="16dp">
 
         <!-- Nombre de ProHiring alineado a la izquierda -->
+
+        <!-- Botón de Cerrar sesión alineado a la derecha -->
         <TextView
             android:id="@+id/proHiringLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ProHiring"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            android:textColor="@color/primary_color"
             android:layout_gravity="start"
-            android:paddingEnd="8dp"/>
+            android:paddingEnd="8dp"
+            android:text="ProHiring"
+            android:textColor="@color/primary_color"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
-        <!-- Botón de Cerrar sesión alineado a la derecha -->
         <Button
             android:id="@+id/logoutButton"
             android:layout_width="wrap_content"

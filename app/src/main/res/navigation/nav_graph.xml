@@ -39,24 +39,34 @@
             app:destination="@id/firstFragment" />
     </fragment>
 
-    <fragment
+   <fragment
         android:id="@+id/thirdFragment"
-        android:name="com.israelaguilar.prohiringandroid.ui.fragments.CompaniesFragment"
+        android:name="com.example.prohiring.ui.fragments.CompaniesFragment"
         android:label="Companies"
         tools:layout="@layout/fragment_companies">
 
 
+        <action
+            android:id="@+id/action_thirdFragment_to_companyProfileFragment2"
+            app:destination="@id/companyProfileFragmentSelected" />
     </fragment>
 
+
+  <!--  <fragment
+        android:id="@+id/companyProfileFragment"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.CompaniesFragment"
+        android:label="Company Profile" />-->
 
     <fragment
-        android:id="@+id/fourthFragment"
-        android:name="com.israelaguilar.prohiringandroid.ui.fragments.MyProjects"
-        android:label="MyProjects"
-        tools:layout="@layout/fragment_my_projects">
-
-
+        android:id="@+id/companyProfileFragmentSelected"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.CompanyProfileFragment"
+        android:label="CompanyProfileFragment"
+        tools:layout="@layout/fragment_company_profile">
+        <action
+            android:id="@+id/action_companyProfileFragmentSelected_to_thirdFragment"
+            app:destination="@id/thirdFragment" />
     </fragment>
+
 
 
 </navigation>

@@ -1,93 +1,112 @@
-package com.israelaguilar.prohiringandroid.ui.fragments
+package com.example.prohiring.ui.fragments
 
-import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
+import android.widget.ImageView
+import android.widget.TextView
+import com.bumptech.glide.Glide
+import com.israelaguilar.prohiringandroid.R
+import com.israelaguilar.prohiringandroid.data.db.model.Company
+import com.israelaguilar.prohiringandroid.ui.fragments.CompanyProfileFragment
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
-import com.israelaguilar.prohiringandroid.R
-import com.israelaguilar.prohiringandroid.data.db.model.Company
-import com.israelaguilar.prohiringandroid.databinding.FragmentCompaniesBinding
-import com.israelaguilar.prohiringandroid.databinding.ItemCompanyBinding
 
 class CompaniesFragment : Fragment() {
 
     private lateinit var companiesRecyclerView: RecyclerView
-    private lateinit var companiesAdapter: CompanyAdapter
-    private var companies: List<Company> = mutableListOf()
+    private val companies = mutableListOf<Company>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentCompaniesBinding.inflate(inflater, container, false)
+        val view = inflater.inflate(R.layout.fragment_companies, container, false)
 
-        companiesRecyclerView = binding.companiesRecyclerView
-        companiesRecyclerView.layoutManager = LinearLayoutManager(context)
+        companiesRecyclerView = view.findViewById(R.id.companiesRecyclerView)
+        companiesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        companiesRecyclerView.adapter = CompaniesAdapter(companies) { company ->
+            navigateToCompanyProfile(company)
+        }
 
-        // Cargar datos de compañías
         loadCompaniesData()
-
-        return binding.root
+        return view
     }
 
     private fun loadCompaniesData() {
-        // Aquí puedes cargar los datos desde Firebase o cualquier otra fuente
-        FirebaseFirestore.getInstance().collection("companies")
-            .get()
-            .addOnSuccessListener { result ->
-                companies = result.map { document ->
-                    Company(
-                        companyName = document.getString("companyName") ?: "Unknown",
-                        services = document.getString("services") ?: "No services",
-                        logoURL = document.getString("logoURL") ?: ""
+        val db = FirebaseFirestore.getInstance()
+        db.collection("companies").get()
+            .addOnSuccessListener { snapshot ->
+                companies.clear()
+                snapshot?.documents?.forEach { document ->
+                    val data = document.data ?: return@forEach
+                    val company = Company(
+                        companyName = data["companyName"] as? String ?: "Unknown",
+                        services = data["services"] as? String ?: "No services",
+                        logoURL = data["logoURL"] as? String ?: "",
+                        socialMedia = data["socialMedia"] as? String ?: "No social media",
+                        contact = data["contact"] as? String ?: "No contact info",
+                        name = data["name"] as? String ?: "No email"
                     )
+                    companies.add(company)
                 }
-
-                companiesAdapter = CompanyAdapter(companies)
-                companiesRecyclerView.adapter = companiesAdapter
+                companiesRecyclerView.adapter?.notifyDataSetChanged()
             }
-            .addOnFailureListener { exception ->
-                Log.w("CompaniesFragment", "Error getting documents.", exception)
+            .addOnFailureListener { e ->
+                Log.e("CompaniesFragment", "Error loading companies: ${e.message}")
             }
     }
 
-    // Adapter para el RecyclerView
-    class CompanyAdapter(private val companies: List<Company>) :
-        RecyclerView.Adapter<CompanyAdapter.CompanyViewHolder>() {
+    private fun navigateToCompanyProfile(company: Company) {
+        val bundle = Bundle().apply {
+            putSerializable("company", company)
+        }
+
+        // Navegar usando el NavController
+        findNavController().navigate(
+            R.id.companyProfileFragmentSelected,
+            bundle
+        )
+    }
+
+
+    class CompaniesAdapter(private val companies: List<Company>, private val onClick: (Company) -> Unit) :
+        RecyclerView.Adapter<CompaniesAdapter.CompanyViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CompanyViewHolder {
-            val binding = ItemCompanyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-            return CompanyViewHolder(binding)
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_company, parent, false)
+            return CompanyViewHolder(view)
         }
 
         override fun onBindViewHolder(holder: CompanyViewHolder, position: Int) {
             val company = companies[position]
-            holder.bind(company)
+            holder.bind(company, onClick)
         }
 
-        override fun getItemCount() = companies.size
+        override fun getItemCount(): Int = companies.size
 
-        // ViewHolder
-        class CompanyViewHolder(private val binding: ItemCompanyBinding) :
-            RecyclerView.ViewHolder(binding.root) {
+        class CompanyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+            private val companyName: TextView = view.findViewById(R.id.companyName)
+            private val services: TextView = view.findViewById(R.id.services)
+            private val logoImageView: ImageView = view.findViewById(R.id.logoImageView)
 
-            fun bind(company: Company) {
-                binding.companyName.text = company.companyName
-                binding.services.text = company.services
-                loadLogoImage(company.logoURL, binding.logoImageView)
-            }
+            fun bind(company: Company, onClick: (Company) -> Unit) {
+                companyName.text = company.companyName
+                services.text = company.services
+                Glide.with(logoImageView.context)
+                    .load(company.logoURL)
+                    .placeholder(R.drawable.house)
+                    .into(logoImageView)
 
-            private fun loadLogoImage(url: String, imageView: ImageView) {
-                Glide.with(imageView.context)
-                    .load(url)
-                    .into(imageView)
+                itemView.setOnClickListener {
+                    onClick(company)
+                }
             }
         }
     }

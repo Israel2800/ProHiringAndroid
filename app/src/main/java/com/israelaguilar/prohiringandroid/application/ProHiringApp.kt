@@ -1,6 +1,7 @@
 package com.israelaguilar.prohiringandroid.application
 
 import android.app.Application
+import com.israelaguilar.prohiringandroid.data.HandymanServiceRepository
 import com.israelaguilar.prohiringandroid.data.PopularProjectsRepository
 import com.israelaguilar.prohiringandroid.data.TreeServiceRepository
 import com.israelaguilar.prohiringandroid.data.remote.RetrofitHelper
@@ -24,5 +25,15 @@ class ProHiringApp: Application() {
     // Repositorio para Popular Projects
     val popularProjectsRepository by lazy {
         PopularProjectsRepository(retrofitPopularProjects)
+    }
+
+    // Retrofit para Popular Projects
+    private val retrofitHandymanServices by lazy {
+        RetrofitHelper().getHandymanServicesRetrofit()
+    }
+
+    // Repositorio para Popular Projects
+    val handymanServicesRepository by lazy {
+        HandymanServiceRepository(retrofitHandymanServices)
     }
 }

@@ -24,9 +24,13 @@
 
     <fragment
         android:id="@+id/handymanServicesFragment"
-        android:name="com.israelaguilar.prohiringandroid.ui.fragments.TreeServicesFragment"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.HandymanServicesFragment"
         android:label="Handyman Services"
-        tools:layout="@layout/fragment_tree_services" />
+        tools:layout="@layout/fragment_handyman_services" >
+        <action
+            android:id="@+id/action_handymanServicesFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/secondFragment"

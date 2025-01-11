@@ -65,10 +65,18 @@ class RetrofitHelper {
             .build()
     }
 
-    // Método para obtener el Retrofit para la nueva API (por ejemplo, `NewApiService`)
     fun getPopularProjectsRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL_POPULAR_PROJECTS)
+            .client(client)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
+    // Método para obtener el Retrofit para la nueva API HandymanServices
+    fun getHandymanServicesRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(Constants.BASE_URL_HANDYMAN_SERVICES)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

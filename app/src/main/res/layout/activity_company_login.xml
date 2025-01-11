@@ -148,7 +148,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                android:text="Ingresa como usuario"
+                android:text="Sign in as a user"
                 android:textColor="@color/card_color_bg"
                 android:background="@android:color/transparent"
                 android:textStyle="bold" />

@@ -5,9 +5,9 @@
 
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.israelaguilar.prohiringandroid.ui.fragments.ServicesSectionsFragment"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.HomeFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_services_sections">
+        tools:layout="@layout/fragment_home">
 
         <action
             android:id="@+id/action_servicesSectionsFragment_to_treeServicesFragment"
@@ -66,13 +66,22 @@
             android:id="@+id/action_companyProfileFragmentSelected_to_thirdFragment"
             app:destination="@id/thirdFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.MyProjectsFragment"
+        android:label="MyProjectsFragment"
+        tools:layout="@layout/fragment_my_projects"
+        />
 
 
-    <activity
-        android:id="@+id/fourthActivity"
-        android:name="com.israelaguilar.prohiringandroid.ui.MyProjectsActivity"
-        android:label="activity_my_projects"
-        tools:layout="@layout/activity_my_projects" />
+    <!--    <activity
+            android:id="@+id/fourthActivity"
+            android:name="com.israelaguilar.prohiringandroid.ui.MyProjectsActivity"
+            android:label="activity_my_projects"
+            tools:layout="@layout/activity_my_projects" />-->
+
+
+
 
 
 </navigation>

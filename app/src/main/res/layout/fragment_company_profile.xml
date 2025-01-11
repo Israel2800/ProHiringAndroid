@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="fill_horizontal"
+            android:gravity="center_vertical"
             android:paddingBottom="16dp">
 
             <TextView
@@ -24,18 +24,13 @@
                 android:textSize="34sp"
                 android:textStyle="bold"
                 android:textColor="@color/primary_color"
-                android:layout_gravity="start" />
+                android:layout_weight="1" />
 
             <Button
                 android:id="@+id/backButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:text="Regresar"
-                android:textSize="14sp"
-                android:background="?android:attr/selectableItemBackground"
-                android:textColor="@color/black"
-                android:backgroundTint="@color/card_color_bg" />
+                android:text="Back" />
 
         </LinearLayout>
 

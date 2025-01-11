@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.MyProjectsActivity">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,6 +21,7 @@
             android:textColor="@color/primary_color"
             android:textStyle="bold"
             android:layout_weight="1" />
+
     </LinearLayout>
 
     <TextView

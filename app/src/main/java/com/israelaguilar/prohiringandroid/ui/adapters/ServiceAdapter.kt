@@ -1,5 +1,6 @@
 package com.israelaguilar.prohiringandroid.ui.adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,8 +28,26 @@ class ServiceAdapter(private val services: List<Service>, private val onItemClic
     class ServiceViewHolder(itemView: View, private val onItemClick: (Service) -> Unit) :
         RecyclerView.ViewHolder(itemView) {
         fun bind(service: Service) {
-            itemView.findViewById<TextView>(R.id.serviceName).text = service.name
-            itemView.findViewById<TextView>(R.id.serviceStatus).text = service.status
+            val serviceName = itemView.findViewById<TextView>(R.id.serviceName)
+            val serviceStatus = itemView.findViewById<TextView>(R.id.serviceStatus)
+
+            // Asignar el nombre del servicio
+            serviceName.text = service.name
+            serviceStatus.text = "Status: ${service.color}"
+
+            // Cambiar el color de fondo de la celda según el color del servicio
+            val colorCode = when (service.color) {
+                "Searching a Pro" -> "#00FF00" // Rojo
+                "Currently working" -> "#FFFF00" // Amarillo
+                "Job done" -> "#FF0000" // Verde
+                else -> "#FFFFFF" // Blanco (por defecto si no hay color definido)
+            }
+            itemView.setBackgroundColor(Color.parseColor(colorCode))
+
+            // Asegurarse de que el texto sea siempre negro
+            serviceName.setTextColor(Color.BLACK)
+            serviceStatus.setTextColor(Color.BLACK)
+
             itemView.setOnClickListener { onItemClick(service) }
         }
     }

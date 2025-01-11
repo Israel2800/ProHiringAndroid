@@ -10,5 +10,6 @@ object Constants {
 
     // Tree Services BASE_URL
     const val BASE_URL = "https://private-c0eaf-treeservices1.apiary-mock.com/"
+    const val BASE_URL_POPULAR_PROJECTS = "https://private-3a90bc-popularprojects.apiary-mock.com/"
 
 }

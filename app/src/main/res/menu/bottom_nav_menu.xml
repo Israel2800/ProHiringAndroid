@@ -13,7 +13,7 @@
         android:icon="@drawable/house"
         android:title="Companies" />
     <item
-        android:id="@+id/fourthActivity"
+        android:id="@+id/fourthFragment"
         android:icon="@drawable/house"
         android:title="My Projects" />
 </menu>

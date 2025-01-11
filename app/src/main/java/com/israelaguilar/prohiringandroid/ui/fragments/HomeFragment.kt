@@ -106,9 +106,23 @@ class HomeFragment : Fragment() {
     }
 
     private fun logout() {
-        firebaseAuth.signOut()
-        // Redirigir al LoginActivity después de cerrar sesión
-        startActivity(Intent(requireContext(), LoginActivity::class.java))
-        requireActivity().finish() // Finaliza la actividad actual
+        // Mostrar un AlertDialog para confirmar la acción
+        val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext())
+        builder.setTitle("Cerrar sesión")
+        builder.setMessage("¿Estás seguro de que deseas cerrar sesión?")
+        builder.setPositiveButton("Sí") { _, _ ->
+            // Acción de cerrar sesión
+            firebaseAuth.signOut()
+            // Redirigir al LoginActivity después de cerrar sesión
+            startActivity(Intent(requireContext(), LoginActivity::class.java))
+            requireActivity().finish() // Finaliza la actividad actual
+        }
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
+            // Cancelar la acción, solo cerrar el diálogo
+            dialog.dismiss()
+        }
+        // Mostrar el diálogo
+        builder.create().show()
     }
+
 }

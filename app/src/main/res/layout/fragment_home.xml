@@ -9,7 +9,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Barra superior con Título y Botón de Cerrar sesión -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,15 +26,16 @@
                 android:textColor="@color/primary_color"
                 android:layout_weight="1" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/logoutButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Logout" />
-
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/exit"
+                android:contentDescription="@string/logout_button"
+                android:background="@null"
+                android:scaleType="centerInside" />
         </LinearLayout>
 
-        <!-- Texto "Popular Projects" -->
         <TextView
             android:id="@+id/popularProjectsText"
             android:layout_width="match_parent"
@@ -48,21 +48,18 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <!-- RecyclerView sección 1 -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp" />
 
-        <!-- RecyclerView sección 2 -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp" />
 
-        <!-- RecyclerView sección 3 -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView3"
             android:layout_width="match_parent"

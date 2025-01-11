@@ -9,4 +9,6 @@
     <color name="gray">#707070</color>
     <color name="primary_color">#1875C5</color>
     <color name="secondayColor">#0097B2</color>
+    <color name="green">#34C759</color>
+    <color name="red">#FF3B30</color>
 </resources>

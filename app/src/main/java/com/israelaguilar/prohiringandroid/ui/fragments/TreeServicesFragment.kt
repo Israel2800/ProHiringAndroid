@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,7 +41,7 @@ class TreeServicesFragment : Fragment() {
         binding.recyclerView.adapter = treeServicesAdapter
 
         // Vinculando el botón de retroceso
-        val backButton: Button = binding.root.findViewById(R.id.backButton)
+        val backButton: ImageButton = binding.root.findViewById(R.id.backButton)
 
         backButton.setOnClickListener {
             findNavController().navigateUp()

@@ -1,10 +1,11 @@
 package com.israelaguilar.prohiringandroid.ui
 
 import android.os.Bundle
-import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -20,7 +21,7 @@ class CompanyProfileActivity : AppCompatActivity() {
     private lateinit var socialMediaLabel: TextView
     private lateinit var contactLabel: TextView
     private lateinit var emailLabel: TextView
-    private lateinit var logoutButton: Button
+    private lateinit var logoutButton: ImageButton
 
     private var companyId: String? = null  // ID de la compañía, será obtenido desde el usuario autenticado
 
@@ -46,9 +47,9 @@ class CompanyProfileActivity : AppCompatActivity() {
             Toast.makeText(this, "No estás logueado", Toast.LENGTH_SHORT).show()
         }
 
-        // Configurar el botón de cierre de sesión
+        // Configurar el botón de cierre de sesión con confirmación
         logoutButton.setOnClickListener {
-            logout()
+            showLogoutConfirmationDialog()
         }
     }
 
@@ -90,7 +91,20 @@ class CompanyProfileActivity : AppCompatActivity() {
             }
     }
 
-    private fun logout() {
+    private fun showLogoutConfirmationDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Cerrar sesión")
+        builder.setMessage("¿Está seguro de que desea cerrar sesión?")
+        builder.setPositiveButton("Sí") { _, _ ->
+            performLogout()
+        }
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
+            dialog.dismiss()
+        }
+        builder.create().show()
+    }
+
+    private fun performLogout() {
         FirebaseAuth.getInstance().signOut()  // Cerrar sesión
         Toast.makeText(this, "Has cerrado sesión correctamente", Toast.LENGTH_SHORT).show()
         finish()  // Volver a la pantalla de inicio o actividad previa

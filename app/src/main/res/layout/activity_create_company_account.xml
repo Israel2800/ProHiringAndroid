@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Contraseña"
+            android:hint="Password"
             app:passwordToggleEnabled="true"
             app:startIconDrawable="@drawable/ic_lock">
 
@@ -69,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Nombre de la Compañía"
+            android:hint="Company name"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -85,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Servicios ofrecidos"
+            android:hint="Services provided"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -101,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Redes Sociales"
+            android:hint="Social media"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -117,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Información de Contacto"
+            android:hint="Phone number"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -141,7 +141,7 @@
                 android:layout_height="36dp"
                 android:layout_marginEnd="8dp"
                 android:src="@drawable/house"
-                android:contentDescription="Logo de la empresa" />
+                android:contentDescription="Company logo" />
 
             <Button
                 android:id="@+id/selectLogoButton"

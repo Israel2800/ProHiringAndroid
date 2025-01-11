@@ -19,7 +19,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Logo and Title -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,7 +42,6 @@
                     android:gravity="center" />
             </LinearLayout>
 
-            <!-- ProgressBar in the center -->
             <ProgressBar
                 android:id="@+id/progressBar"
                 android:layout_width="wrap_content"
@@ -52,14 +50,13 @@
                 android:layout_gravity="center"
                 android:visibility="gone" />
 
-            <!-- Email and Password Fields -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilEmail"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:hint="@string/hint_email"
+                android:hint="Email"
                 app:startIconDrawable="@drawable/ic_email">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -75,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:hint="@string/hint_password"
+                android:hint="Password"
                 app:passwordToggleEnabled="true"
                 app:startIconDrawable="@drawable/ic_lock">
 
@@ -86,26 +83,24 @@
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Login Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_margin="16dp"
                 android:backgroundTint="@color/card_color_bg"
-                android:text="@string/btn_login"
+                android:text="Login"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
-            <!-- Forgot Password -->
             <TextView
                 android:id="@+id/tvRestablecerPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/forgot_password"
+                android:text="Forgot your password? Reset here"
                 android:textColor="@color/card_color_bg"
                 android:textSize="14sp" />
 
@@ -120,14 +115,14 @@
                     android:id="@+id/alreadyAccountText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Already have an account? "
+                    android:text="Already have an account?"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/btnRegistrarse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/btn_register"
+                    android:text="Sign up"
                     android:textSize="14sp"
                     android:textColor="@color/card_color_bg"
                     android:clickable="true"
@@ -136,14 +131,6 @@
                     android:layout_gravity="center_vertical" />
             </LinearLayout>
 
-            <!-- Divider -->
-<!--            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="16dp"
-                android:background="@color/gray" />-->
-
-            <!-- Footer Button -->
             <Button
                 android:id="@+id/btnSignInPro"
                 android:layout_width="wrap_content"

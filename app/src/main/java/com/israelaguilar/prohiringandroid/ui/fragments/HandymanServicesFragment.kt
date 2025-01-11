@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.widget.ImageButton
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.israelaguilar.prohiringandroid.R
@@ -40,7 +40,7 @@ class HandymanServicesFragment : Fragment() {
         binding.recyclerView.adapter = handymanServicesAdapter
 
         // Vinculando el botón de retroceso
-        val backButton: Button = binding.root.findViewById(R.id.backButton)
+        val backButton: ImageButton = binding.root.findViewById(R.id.backButton)
 
         backButton.setOnClickListener {
             findNavController().navigateUp()

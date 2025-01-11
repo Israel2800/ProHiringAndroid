@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Barra superior con Título -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +24,6 @@
             android:layout_weight="1" />
     </LinearLayout>
 
-    <!-- Texto informativo debajo del título -->
     <TextView
         android:id="@+id/visitText"
         android:layout_width="match_parent"
@@ -38,11 +36,11 @@
         android:textStyle="italic"
         android:textColor="@color/black"/>
 
-    <!-- RecyclerView para mostrar las compañías -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/companiesRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="80dp"
         android:layout_weight="1"
         android:padding="8dp" />
 

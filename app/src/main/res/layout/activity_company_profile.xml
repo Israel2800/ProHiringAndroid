@@ -9,39 +9,38 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="start|end"
-        android:paddingBottom="16dp">
+        android:orientation="vertical">
 
-        <!-- Nombre de ProHiring alineado a la izquierda -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="16dp">
 
-        <!-- Botón de Cerrar sesión alineado a la derecha -->
         <TextView
             android:id="@+id/proHiringLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:paddingEnd="8dp"
             android:text="ProHiring"
-            android:textColor="@color/primary_color"
             android:textSize="34sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/primary_color"
+            android:layout_weight="1" />
 
         <Button
-            android:id="@+id/logoutButton"
+            android:id="@+id/logoutButtonCC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cerrar sesión"
-            android:textSize="14sp"
-            android:layout_gravity="end"
-            android:background="?android:attr/selectableItemBackground"
-            android:textColor="@color/black"
-            android:backgroundTint="@color/card_color_bg"/>
+            android:text="Logout" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
     <!-- Nombre de la empresa centrado y en negritas -->
     <TextView
-        android:id="@+id/companyNameLabel"
+        android:id="@+id/companyNameLabelCC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Company Name"
@@ -52,7 +51,7 @@
 
     <!-- Logo de la compañía centrado -->
     <ImageView
-        android:id="@+id/logoImageView"
+        android:id="@+id/logoImageViewCC"
         android:layout_width="125dp"
         android:layout_height="125dp"
         android:layout_gravity="center"
@@ -88,7 +87,7 @@
 
     <!-- Datos de Servicios -->
     <TextView
-        android:id="@+id/servicesDataLabel"
+        android:id="@+id/servicesDataLabelCC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Service details from Firebase"
@@ -123,7 +122,7 @@
 
     <!-- Datos de Redes Sociales -->
     <TextView
-        android:id="@+id/socialMediaDataLabel"
+        android:id="@+id/socialMediaDataLabelCC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Social media details from Firebase"
@@ -158,7 +157,7 @@
 
     <!-- Datos de Contacto -->
     <TextView
-        android:id="@+id/contactDataLabel"
+        android:id="@+id/contactDataLabelCC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Contact info from Firebase"
@@ -193,7 +192,7 @@
 
     <!-- Datos de Email -->
     <TextView
-        android:id="@+id/emailDataLabel"
+        android:id="@+id/emailDataLabelCC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Email info from Firebase"

@@ -1,5 +1,6 @@
 package com.israelaguilar.prohiringandroid.ui.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,10 +9,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.israelaguilar.prohiringandroid.data.PopularProjectsRepository
 import com.israelaguilar.prohiringandroid.data.remote.RetrofitHelper
 import com.israelaguilar.prohiringandroid.data.remote.model.PopularProject
 import com.israelaguilar.prohiringandroid.databinding.FragmentHomeBinding
+import com.israelaguilar.prohiringandroid.ui.LoginActivity
 import com.israelaguilar.prohiringandroid.ui.adapters.PopularProjectsAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,21 +23,28 @@ import kotlinx.coroutines.withContext
 
 class HomeFragment : Fragment() {
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: PopularProjectsAdapter
-    private var popularProjects = mutableListOf<PopularProject>()
+    private lateinit var adapter1: PopularProjectsAdapter
+    private lateinit var adapter2: PopularProjectsAdapter
+    private lateinit var adapter3: PopularProjectsAdapter
+    private var popularProjects1 = mutableListOf<PopularProject>()
+    private var popularProjects2 = mutableListOf<PopularProject>()
+    private var popularProjects3 = mutableListOf<PopularProject>()
     private lateinit var popularProjectsRepository: PopularProjectsRepository
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        recyclerView = binding.recyclerView
-        adapter = PopularProjectsAdapter(popularProjects)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = adapter
+        // Configurar FirebaseAuth
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        // Configurar los RecyclerViews con adaptadores independientes
+        setupRecyclerView(binding.recyclerView1, popularProjects1).also { adapter1 = it }
+        setupRecyclerView(binding.recyclerView2, popularProjects2).also { adapter2 = it }
+        setupRecyclerView(binding.recyclerView3, popularProjects3).also { adapter3 = it }
 
         // Inicializar Retrofit y Repository
         val retrofit = RetrofitHelper().getPopularProjectsRetrofit()
@@ -43,24 +53,47 @@ class HomeFragment : Fragment() {
         // Cargar los proyectos populares
         loadPopularProjects()
 
+        // Configurar el botón de Cerrar sesión
+        binding.logoutButton.setOnClickListener {
+            logout()
+        }
+
         return binding.root
+    }
+
+    private fun setupRecyclerView(recyclerView: RecyclerView, projects: List<PopularProject>): PopularProjectsAdapter {
+        recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        val adapter = PopularProjectsAdapter(projects)
+        recyclerView.adapter = adapter
+        return adapter
     }
 
     private fun loadPopularProjects() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                // Realizar la llamada a la API para obtener los proyectos populares
                 val response = popularProjectsRepository.getPopularProjectsApi().execute()
 
                 if (response.isSuccessful) {
-                    response.body()?.let {
-                        // Limpiar la lista de proyectos y agregar los nuevos
-                        popularProjects.clear()
-                        popularProjects.addAll(it)
+                    response.body()?.let { projects ->
+                        // Dividir los proyectos en tres listas independientes
+                        val splitIndex = projects.size / 3
+                        val list1 = projects.subList(0, splitIndex)
+                        val list2 = projects.subList(splitIndex, splitIndex * 2)
+                        val list3 = projects.subList(splitIndex * 2, projects.size)
 
-                        // Actualizar la interfaz de usuario en el hilo principal
+                        // Actualizar las listas de datos
+                        popularProjects1.clear()
+                        popularProjects2.clear()
+                        popularProjects3.clear()
+
+                        popularProjects1.addAll(list1)
+                        popularProjects2.addAll(list2)
+                        popularProjects3.addAll(list3)
+
                         withContext(Dispatchers.Main) {
-                            adapter.notifyDataSetChanged()
+                            adapter1.notifyDataSetChanged()
+                            adapter2.notifyDataSetChanged()
+                            adapter3.notifyDataSetChanged()
                         }
                     }
                 } else {
@@ -70,5 +103,12 @@ class HomeFragment : Fragment() {
                 Log.e("HomeFragment", "Exception: ${e.message}")
             }
         }
+    }
+
+    private fun logout() {
+        firebaseAuth.signOut()
+        // Redirigir al LoginActivity después de cerrar sesión
+        startActivity(Intent(requireContext(), LoginActivity::class.java))
+        requireActivity().finish() // Finaliza la actividad actual
     }
 }

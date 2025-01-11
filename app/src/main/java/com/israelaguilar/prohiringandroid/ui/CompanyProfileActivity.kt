@@ -22,25 +22,29 @@ class CompanyProfileActivity : AppCompatActivity() {
     private lateinit var emailLabel: TextView
     private lateinit var logoutButton: Button
 
-    private var companyId: String? = null  // ID de la compañía, debe ser pasado desde la actividad anterior
+    private var companyId: String? = null  // ID de la compañía, será obtenido desde el usuario autenticado
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_company_profile)
 
         // Inicialización de vistas
-        logoImageView = findViewById(R.id.logoImageView)
-        companyNameLabel = findViewById(R.id.companyNameLabel)
-        servicesLabel = findViewById(R.id.servicesDataLabel)
-        socialMediaLabel = findViewById(R.id.socialMediaDataLabel)
-        contactLabel = findViewById(R.id.contactDataLabel)
-        emailLabel = findViewById(R.id.emailDataLabel)
-        logoutButton = findViewById(R.id.logoutButton)
+        logoImageView = findViewById(R.id.logoImageViewCC)
+        companyNameLabel = findViewById(R.id.companyNameLabelCC)
+        servicesLabel = findViewById(R.id.servicesDataLabelCC)
+        socialMediaLabel = findViewById(R.id.socialMediaDataLabelCC)
+        contactLabel = findViewById(R.id.contactDataLabelCC)
+        emailLabel = findViewById(R.id.emailDataLabelCC)
+        logoutButton = findViewById(R.id.logoutButtonCC)
 
-        // Recibir el ID de la compañía (pasado desde la actividad anterior)
-        companyId = intent.getStringExtra("COMPANY_ID")
-
-        companyId?.let { loadCompanyProfile(it) }
+        // Obtener el ID de la compañía logueada desde FirebaseAuth
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            companyId = currentUser.uid  // Usar el UID del usuario autenticado como companyId
+            companyId?.let { loadCompanyProfile(it) }
+        } else {
+            Toast.makeText(this, "No estás logueado", Toast.LENGTH_SHORT).show()
+        }
 
         // Configurar el botón de cierre de sesión
         logoutButton.setOnClickListener {

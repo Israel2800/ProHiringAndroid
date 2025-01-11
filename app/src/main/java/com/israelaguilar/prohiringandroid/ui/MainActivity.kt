@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         user = firebaseAuth.currentUser
         userId = user?.uid
 
-        binding.tvUsuario.text = user?.email
+        //binding.tvUsuario.text = user?.email
 
         // Colocamos un SplashScreen
         installSplashScreen().apply {
@@ -108,7 +108,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Revisamos si el correo no está verificado
-        if(user?.isEmailVerified != true){
+/*        if(user?.isEmailVerified != true){
             // No se ha verificado su correo
             binding.tvCorreoNoVerificado.visibility = View.VISIBLE
             binding.btnReenviarVerificacion.visibility = View.VISIBLE
@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                     message(getString(R.string.verification_email_failed))
                 }
             }
-        }
+        }*/
 
         //Mostramos el fragment inicial GamesListFragment
         /*
@@ -131,12 +131,12 @@ class MainActivity : AppCompatActivity() {
         }
         */
 
-        binding.btnCerrarSesion.setOnClickListener {
+/*        binding.btnCerrarSesion.setOnClickListener {
             firebaseAuth.signOut()
             startActivity(Intent(this, LoginActivity::class.java))
             message(getString(R.string.session_closed))
             finish()
-        }
+        }*/
 
         networkReceiver = NetworkReceiver {
             // Llamar al ViewModel para recargar la data

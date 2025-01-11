@@ -7,7 +7,7 @@ import com.israelaguilar.prohiringandroid.data.remote.model.TreeServiceDto
 import com.israelaguilar.prohiringandroid.databinding.GameElementBinding
 
 class TreeServicesAdapter(
-    private val treeServices: MutableList<TreeServiceDto>,
+    val treeServices: MutableList<TreeServiceDto>,
     private val onTreeSerivceClicked: (TreeServiceDto) -> Unit
 ): RecyclerView.Adapter<TreeServiceViewHolder>() {
 

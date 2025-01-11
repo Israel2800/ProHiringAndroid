@@ -9,25 +9,24 @@
         android:label="Home"
         tools:layout="@layout/fragment_home">
 
-        <action
-            android:id="@+id/action_servicesSectionsFragment_to_treeServicesFragment"
-            app:destination="@id/treeServicesFragment" />
-        <action
-            android:id="@+id/action_servicesSectionsFragment_to_handymanServicesFragment"
-            app:destination="@id/handymanServicesFragment" />
+
     </fragment>
 
     <fragment
         android:id="@+id/treeServicesFragment"
-        android:name="com.israelaguilar.prohiringandroid.ui.fragments.GamesListFragment"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.TreeServicesFragment"
         android:label="Tree Services"
-        tools:layout="@layout/fragment_games_list" />
+        tools:layout="@layout/fragment_tree_services" >
+        <action
+            android:id="@+id/action_treeServicesFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/handymanServicesFragment"
-        android:name="com.israelaguilar.prohiringandroid.ui.fragments.ServicesSectionsFragment"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.TreeServicesFragment"
         android:label="Handyman Services"
-        tools:layout="@layout/fragment_services_sections" />
+        tools:layout="@layout/fragment_tree_services" />
 
     <fragment
         android:id="@+id/secondFragment"
@@ -35,8 +34,11 @@
         android:label="Handyman Services"
         tools:layout="@layout/fragment_services_sections" >
         <action
-            android:id="@+id/action_secondFragment_to_firstFragment"
-            app:destination="@id/firstFragment" />
+            android:id="@+id/action_servicesSectionsFragment_to_treeServicesFragment"
+            app:destination="@id/treeServicesFragment" />
+        <action
+            android:id="@+id/action_servicesSectionsFragment_to_handymanServicesFragment"
+            app:destination="@id/handymanServicesFragment" />
     </fragment>
 
    <fragment

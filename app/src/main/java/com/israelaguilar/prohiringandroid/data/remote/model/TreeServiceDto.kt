@@ -13,8 +13,8 @@ data class TreeServiceDto (
     @SerializedName("title")
     var title: String? = null,
 
-    @SerializedName("description")
-    var description: String? = null,
+    @SerializedName("descrip")
+    var descrip: String? = null,
 
     @SerializedName("price")
     var price: String? = null,

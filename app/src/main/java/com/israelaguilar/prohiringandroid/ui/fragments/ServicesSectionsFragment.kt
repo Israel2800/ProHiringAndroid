@@ -40,24 +40,24 @@ class ServicesSectionsFragment : Fragment() {
 
     private fun navigateToServicesList(isTreeServices: Boolean) {
 
-        /*
+
         val action = if (isTreeServices) {
             R.id.action_servicesSectionsFragment_to_treeServicesFragment
         } else {
             R.id.action_servicesSectionsFragment_to_handymanServicesFragment
         }
-*/
+
 
 
         // Limpiar la pila y navegar al nuevo fragmento sin que se mantengan los anteriores en segundo plano
-        //findNavController().navigate(action)
+        findNavController().navigate(action)
 
         // Si prefieres usar un fragmento manual, se puede hacer lo siguiente:
-        val fragment = if (isTreeServices) GamesListFragment() else GamesListFragment()
+/*        val fragment = if (isTreeServices) TreeServicesFragment() else GamesListFragment()
         requireActivity().supportFragmentManager.beginTransaction()
              .replace(R.id.fragment_container, fragment)
             .addToBackStack(null)
-            .commit()
+            .commit()*/
     }
 
     override fun onDestroyView() {

@@ -15,10 +15,10 @@ class TreeServiceViewHolder(
 
         binding.apply {
             tvTitle.text = treeService.title
-            tvDescription.text = treeService.description
+            tvDescription.text = treeService.descrip
 
             val context = binding.root.context
-
+/*
             tvPrice.text = context.getString(
                 R.string.price,
                 treeService.price
@@ -27,7 +27,7 @@ class TreeServiceViewHolder(
             tvDuration.text = context.getString(
                 R.string.duration,
                 treeService.duration
-            )
+            )*/
         }
 
         // binding.tvTitle.text = treeService.title

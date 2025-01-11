@@ -79,6 +79,8 @@ dependencies {
     //Imágenes con bordes redondeados
     implementation(libs.roundedimageview)
 
+    implementation (libs.androidx.constraintlayout.v220)
+
     // SplashScreen
     implementation(libs.androidx.core.splashscreen)
 

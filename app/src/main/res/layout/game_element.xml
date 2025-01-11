@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/eight">
+    android:padding="@dimen/eight"
+    android:background="@android:color/white">
 
     <!-- Single CardView containing all the content -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardAllContent"
-        android:layout_width="@dimen/zero"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/eight"
-        android:backgroundTint="@color/card_color_bg"
+        android:backgroundTint="@android:color/white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,73 +25,53 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <!-- Image on the left half -->
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/ivThumbnail"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/cardview_height"
-                android:layout_marginBottom="@dimen/eight"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_marginEnd="10dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:paddingBottom="@dimen/eight"
-                app:layout_constraintTop_toTopOf="@id/card"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintWidth_percent="0.4" />
 
+            <!-- Title -->
             <TextView
                 android:id="@+id/tvTitle"
-                android:layout_width="@dimen/zero"
-                android:padding="@dimen/eight"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/eight"
                 android:fontFamily="@font/ubuntu_bold"
-                android:textColor="@color/light_blue"
-                android:textSize="@dimen/title_size"
-                android:textAlignment="center"
-                app:layout_constraintTop_toBottomOf="@id/ivThumbnail"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:gravity="start"
+                android:textAlignment="viewStart"
+                app:layout_constraintStart_toEndOf="@id/ivThumbnail"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="8dp"
                 tools:text="@string/title" />
 
+            <!-- Description -->
             <TextView
                 android:id="@+id/tvDescription"
-                android:layout_width="@dimen/zero"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/eight"
-                android:fontFamily="@font/ubuntu"
-                android:textColor="@color/light_blue"
-                android:padding="@dimen/eight"
-                android:textSize="@dimen/txt_size"
-                app:layout_constraintTop_toBottomOf="@id/tvTitle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:text="@string/card_description" />
-
-            <TextView
-                android:id="@+id/tvPrice"
-                android:layout_width="@dimen/zero"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/eight"
-                android:padding="@dimen/eight"
-                android:fontFamily="@font/ubuntu"
-                android:textColor="@color/light_blue"
-                android:textSize="@dimen/txt_size"
-                app:layout_constraintTop_toBottomOf="@id/tvDescription"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:text="@string/card_price" />
-
-            <TextView
-                android:id="@+id/tvDuration"
-                android:layout_width="@dimen/zero"
-                android:padding="@dimen/eight"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/eight"
-                android:fontFamily="@font/ubuntu"
-                android:textColor="@color/light_blue"
-                android:textSize="@dimen/txt_size"
-                app:layout_constraintTop_toBottomOf="@id/tvPrice"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:text="@string/card_duration" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="8dp"
+                android:paddingBottom="8dp"
+            android:fontFamily="@font/ubuntu"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:gravity="start|end"
+            android:maxLines="3"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@id/ivThumbnail"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            tools:text="@string/card_description" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -72,5 +72,7 @@
     <string name="location">Location</string>
     <string name="forward_verification_email">Reenviar correo de verificación</string>
     <string name="ourWork">See our work!</string>
+    <string name="edit_service">Edit Service</string>
+    <string name="add_service">Add service</string>
 
 </resources>

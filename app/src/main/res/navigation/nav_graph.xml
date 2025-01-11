@@ -68,5 +68,11 @@
     </fragment>
 
 
+    <activity
+        android:id="@+id/fourthActivity"
+        android:name="com.israelaguilar.prohiringandroid.ui.MyProjectsActivity"
+        android:label="activity_my_projects"
+        tools:layout="@layout/activity_my_projects" />
+
 
 </navigation>

@@ -1,0 +1,64 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.MyProjectsActivity">
+
+    <!-- Email Label -->
+    <TextView
+        android:id="@+id/emailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Email"
+        android:textSize="16sp"
+        android:layout_margin="16dp"/>
+
+    <!-- Service Name Input -->
+    <EditText
+        android:id="@+id/serviceNameTextField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Insert a project"
+        android:inputType="text"
+        android:layout_margin="16dp"/>
+
+    <!-- Service Color Picker (using Spinner) -->
+    <Spinner
+        android:id="@+id/serviceColorPicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"/>
+
+    <!-- TableView for Services -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/serviceTableView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="16dp"/>
+
+    <!-- Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_margin="16dp">
+
+        <Button
+            android:id="@+id/addServiceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Service"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/deleteServiceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete Service"/>
+    </LinearLayout>
+
+</LinearLayout>

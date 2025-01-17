@@ -20,6 +20,10 @@
         <action
             android:id="@+id/action_treeServicesFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_treeServicesFragment_to_treeServicesDetailFragment"
+            app:destination="@id/treeServicesDetailFragment" />
+
     </fragment>
 
     <fragment
@@ -78,6 +82,16 @@
         android:label="MyProjectsFragment"
         tools:layout="@layout/fragment_my_projects"
         />
+
+
+   <fragment
+        android:id="@+id/treeServicesDetailFragment"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.TreeServicesDetailFragment"
+        tools:layout="@layout/fragment_tree_services_detail">
+        <argument
+            android:name="treeServiceId"
+            app:argType="string" />
+    </fragment>
 
 
     <!--    <activity

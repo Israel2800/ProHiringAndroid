@@ -4,12 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.israelaguilar.prohiringandroid.R
 import com.israelaguilar.prohiringandroid.data.TreeServiceRepository
 import com.israelaguilar.prohiringandroid.data.remote.RetrofitHelper
 import com.israelaguilar.prohiringandroid.databinding.FragmentTreeServicesBinding
@@ -36,16 +33,17 @@ class TreeServicesFragment : Fragment() {
         // Configuración del RecyclerView
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         treeServicesAdapter = TreeServicesAdapter(mutableListOf()) { treeService ->
-            // Acción al hacer click en un TreeService (se puede implementar navegación o mostrar detalles)
+            // Aquí navegamos al TreeServicesDetailFragment y pasamos el ID
+            val action = treeService.id?.let {
+                TreeServicesFragmentDirections.actionTreeServicesFragmentToTreeServicesDetailFragment(
+                    it // Pasamos el id
+                )
+            }
+            if (action != null) {
+                findNavController().navigate(action)
+            }
         }
         binding.recyclerView.adapter = treeServicesAdapter
-
-        // Vinculando el botón de retroceso
-        val backButton: ImageButton = binding.root.findViewById(R.id.backButton)
-
-        backButton.setOnClickListener {
-            findNavController().navigateUp()
-        }
 
         // Llamada a la API para obtener los datos
         treeServiceRepository = TreeServiceRepository(RetrofitHelper().getTreeServicesRetrofit())

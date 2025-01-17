@@ -19,16 +19,12 @@ class TreeServicesAdapter(
     override fun getItemCount(): Int = treeServices.size
 
     override fun onBindViewHolder(holder: TreeServiceViewHolder, position: Int) {
-
         val treeService = treeServices[position]
-
         holder.bind(treeService)
 
         holder.itemView.setOnClickListener {
-            //Para los clicks a los servicios
+            // Al hacer clic en el servicio, pasamos el ID del servicio al fragmento de detalles
             onTreeSerivceClicked(treeService)
         }
-
     }
-
 }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -63,10 +64,20 @@ class HomeFragment : Fragment() {
 
     private fun setupRecyclerView(recyclerView: RecyclerView, projects: List<PopularProject>): PopularProjectsAdapter {
         recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        val adapter = PopularProjectsAdapter(projects)
+        val adapter = PopularProjectsAdapter(projects) { selectedProject ->
+            val action = selectedProject.id?.let {
+                HomeFragmentDirections.actionFirstFragmentToPopularProjectsDetailFragment(
+                    it
+                )
+            }
+            if (action != null) {
+                findNavController().navigate(action)
+            }
+        }
         recyclerView.adapter = adapter
         return adapter
     }
+
 
     private fun loadPopularProjects() {
         CoroutineScope(Dispatchers.IO).launch {

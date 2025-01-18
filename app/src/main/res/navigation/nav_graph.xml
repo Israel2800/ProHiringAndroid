@@ -8,8 +8,9 @@
         android:name="com.israelaguilar.prohiringandroid.ui.fragments.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home">
-
-
+        <action
+            android:id="@+id/action_firstFragment_to_popularProjectsDetailFragment"
+            app:destination="@id/popularProjectsDetailFragment" />
     </fragment>
 
     <fragment
@@ -23,7 +24,6 @@
         <action
             android:id="@+id/action_treeServicesFragment_to_treeServicesDetailFragment"
             app:destination="@id/treeServicesDetailFragment" />
-
     </fragment>
 
     <fragment
@@ -64,12 +64,6 @@
             app:destination="@id/companyProfileFragmentSelected" />
     </fragment>
 
-
-  <!--  <fragment
-        android:id="@+id/companyProfileFragment"
-        android:name="com.israelaguilar.prohiringandroid.ui.fragments.CompaniesFragment"
-        android:label="Company Profile" />-->
-
     <fragment
         android:id="@+id/companyProfileFragmentSelected"
         android:name="com.israelaguilar.prohiringandroid.ui.fragments.CompanyProfileFragment"
@@ -79,13 +73,12 @@
             android:id="@+id/action_companyProfileFragmentSelected_to_thirdFragment"
             app:destination="@id/thirdFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/fourthFragment"
         android:name="com.israelaguilar.prohiringandroid.ui.fragments.MyProjectsFragment"
         android:label="MyProjectsFragment"
-        tools:layout="@layout/fragment_my_projects"
-        />
-
+        tools:layout="@layout/fragment_my_projects" />
 
    <fragment
         android:id="@+id/treeServicesDetailFragment"
@@ -98,6 +91,7 @@
            android:id="@+id/action_treeServicesDetailFragment_to_treeServicesFragment"
            app:destination="@id/treeServicesFragment" />
    </fragment>
+
     <fragment
         android:id="@+id/handymanServicesDetailFragment"
         android:name="com.israelaguilar.prohiringandroid.ui.fragments.HandymanServicesDetailFragment"
@@ -109,7 +103,19 @@
         <action
             android:id="@+id/action_handymanServicesDetailFragment_to_handymanServicesFragment"
             app:destination="@id/handymanServicesFragment" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/popularProjectsDetailFragment"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.PopularProjectsDetailFragment"
+        android:label="PopularProjectsDetailFragment"
+        tools:layout="@layout/fragment_popular_projects_detail">
+        <argument
+            android:name="popularProjectId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_popularProjectsDetailFragment_to_firstFragment"
+            app:destination="@id/firstFragment" />
     </fragment>
 
 </navigation>

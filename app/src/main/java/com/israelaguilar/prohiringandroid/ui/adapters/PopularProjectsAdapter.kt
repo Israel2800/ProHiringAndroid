@@ -8,8 +8,10 @@ import com.israelaguilar.prohiringandroid.R
 import com.israelaguilar.prohiringandroid.data.remote.model.PopularProject
 import com.israelaguilar.prohiringandroid.databinding.ItemPopularProjectBinding
 
-class PopularProjectsAdapter(private val popularProjects: List<PopularProject>) :
-    RecyclerView.Adapter<PopularProjectsAdapter.PopularProjectsViewHolder>() {
+class PopularProjectsAdapter(
+    private val popularProjects: List<PopularProject>,
+    private val onItemClick: (PopularProject) -> Unit
+) : RecyclerView.Adapter<PopularProjectsAdapter.PopularProjectsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularProjectsViewHolder {
         val binding = ItemPopularProjectBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -19,6 +21,7 @@ class PopularProjectsAdapter(private val popularProjects: List<PopularProject>) 
     override fun onBindViewHolder(holder: PopularProjectsViewHolder, position: Int) {
         val project = popularProjects[position]
         holder.bind(project)
+        holder.itemView.setOnClickListener { onItemClick(project) }
     }
 
     override fun getItemCount(): Int = popularProjects.size

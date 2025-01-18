@@ -91,7 +91,10 @@
         <argument
             android:name="treeServiceId"
             app:argType="string" />
-    </fragment>
+       <action
+           android:id="@+id/action_treeServicesDetailFragment_to_treeServicesFragment"
+           app:destination="@id/treeServicesFragment" />
+   </fragment>
 
 
     <!--    <activity

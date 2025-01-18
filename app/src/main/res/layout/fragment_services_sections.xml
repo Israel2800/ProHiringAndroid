@@ -37,6 +37,8 @@
             android:id="@+id/tvDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textStyle="italic"
             android:text="Explore all kind of services that companies offer!"
             android:textSize="16sp"
             android:layout_marginBottom="16dp" />

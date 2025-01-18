@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.israelaguilar.prohiringandroid.data.TreeServiceRepository
+import com.israelaguilar.prohiringandroid.R
 import com.israelaguilar.prohiringandroid.data.remote.RetrofitHelper
 import com.israelaguilar.prohiringandroid.data.remote.TreeServicesApi
 import com.israelaguilar.prohiringandroid.data.remote.model.TreeServiceDetailDto
@@ -29,6 +31,14 @@ class TreeServicesDetailFragment : Fragment() {
     ): View? {
         _binding = FragmentTreeServicesDetailBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        // Vinculando el botón de retroceso
+        val backButton: ImageButton = binding.root.findViewById(R.id.backButton)
+        backButton.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
+
 
         // Obtener el ID del servicio desde los argumentos
         val treeServiceId = args.treeServiceId

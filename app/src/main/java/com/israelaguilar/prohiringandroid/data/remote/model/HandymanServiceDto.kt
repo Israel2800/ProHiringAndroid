@@ -2,7 +2,7 @@ package com.israelaguilar.prohiringandroid.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
-data class HandymanServicesDto (
+data class HandymanServiceDto (
 
     @SerializedName("id")
     var id: String? = null,

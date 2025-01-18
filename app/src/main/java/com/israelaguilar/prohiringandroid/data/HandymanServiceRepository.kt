@@ -1,10 +1,8 @@
 package com.israelaguilar.prohiringandroid.data
 
 import com.israelaguilar.prohiringandroid.data.remote.HandymanServicesApi
-import com.israelaguilar.prohiringandroid.data.remote.TreeServicesApi
-import com.israelaguilar.prohiringandroid.data.remote.model.HandymanServicesDto
-import com.israelaguilar.prohiringandroid.data.remote.model.TreeServiceDetailDto
-import com.israelaguilar.prohiringandroid.data.remote.model.TreeServiceDto
+import com.israelaguilar.prohiringandroid.data.remote.model.HandymanServiceDetailDto
+import com.israelaguilar.prohiringandroid.data.remote.model.HandymanServiceDto
 import retrofit2.Call
 import retrofit2.Retrofit
 
@@ -16,7 +14,7 @@ class HandymanServiceRepository(
 
 
     // Mandar a llamar mediante apiary
-    fun getHandymanServicesApi(): Call<MutableList<HandymanServicesDto>> = handymanServicesApi.getHandymanServicesApiary()
+    fun getHandymanServicesApi(): Call<MutableList<HandymanServiceDto>> = handymanServicesApi.getHandymanServicesApiary()
 
-    //fun getTreeServiceDetailApiary(id: String?): Call<TreeServiceDetailDto> = treeServicesApi.getTreeServiceDetailApiary(id)
+    fun getHandymanServiceDetailApiary(id: String?): Call<HandymanServiceDetailDto> = handymanServicesApi.getHandymanServiceDetailApiary(id)
 }

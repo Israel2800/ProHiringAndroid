@@ -3,6 +3,7 @@ package com.israelaguilar.prohiringandroid.data
 import com.israelaguilar.prohiringandroid.data.remote.PopularProjectsApi
 import com.israelaguilar.prohiringandroid.data.remote.TreeServicesApi
 import com.israelaguilar.prohiringandroid.data.remote.model.PopularProject
+import com.israelaguilar.prohiringandroid.data.remote.model.PopularProjectDetailDto
 import com.israelaguilar.prohiringandroid.data.remote.model.TreeServiceDetailDto
 import com.israelaguilar.prohiringandroid.data.remote.model.TreeServiceDto
 import retrofit2.Call
@@ -18,5 +19,5 @@ class PopularProjectsRepository(
     // Mandar a llamar mediante apiary
     fun getPopularProjectsApi(): Call<MutableList<PopularProject>> = popularProjectsApi.getPopularProjectsApiary()
 
-    //fun getTreeServiceDetailApiary(id: String?): Call<TreeServiceDetailDto> = treeServicesApi.getTreeServiceDetailApiary(id)
+    fun getPopularProjectDetailApiary(id: String?): Call<PopularProjectDetailDto> = popularProjectsApi.getPopularProjectDetailApiary(id)
 }

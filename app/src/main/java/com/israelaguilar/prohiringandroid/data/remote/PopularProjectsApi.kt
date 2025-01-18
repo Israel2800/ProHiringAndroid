@@ -1,6 +1,7 @@
 package com.israelaguilar.prohiringandroid.data.remote
 
 import com.israelaguilar.prohiringandroid.data.remote.model.PopularProject
+import com.israelaguilar.prohiringandroid.data.remote.model.PopularProjectDetailDto
 import com.israelaguilar.prohiringandroid.data.remote.model.TreeServiceDetailDto
 import com.israelaguilar.prohiringandroid.data.remote.model.TreeServiceDto
 import retrofit2.Call
@@ -16,8 +17,8 @@ interface PopularProjectsApi {
     fun getPopularProjectsApiary(): Call<MutableList<PopularProject>>
 
     // https://private-c0eaf-treeservices1.apiary-mock.com/treeServices/treeService_detail/21357
-    /*@GET("treeServices/treeService_detail/{id}")
-    fun getTreeServiceDetailApiary(
+    @GET("/popularProjects/service_detail/{id}")
+    fun getPopularProjectDetailApiary(
         @Path("id") id: String?
-    ): Call<TreeServiceDetailDto>*/
+    ): Call<PopularProjectDetailDto>
 }

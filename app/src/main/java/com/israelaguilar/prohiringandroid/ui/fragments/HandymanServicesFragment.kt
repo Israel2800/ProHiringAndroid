@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.israelaguilar.prohiringandroid.R
 import com.israelaguilar.prohiringandroid.data.HandymanServiceRepository
 import com.israelaguilar.prohiringandroid.data.remote.RetrofitHelper
-import com.israelaguilar.prohiringandroid.data.remote.model.HandymanServicesDto
+import com.israelaguilar.prohiringandroid.data.remote.model.HandymanServiceDto
 import com.israelaguilar.prohiringandroid.databinding.FragmentHandymanServicesBinding
 import com.israelaguilar.prohiringandroid.ui.adapters.HandymanServicesAdapter
 import retrofit2.Call
@@ -55,10 +55,10 @@ class HandymanServicesFragment : Fragment() {
 
     private fun getHandymanServices() {
         handymanServiceRepository.getHandymanServicesApi().enqueue(object :
-            Callback<MutableList<HandymanServicesDto>> {
+            Callback<MutableList<HandymanServiceDto>> {
             override fun onResponse(
-                call: Call<MutableList<HandymanServicesDto>>,
-                response: Response<MutableList<HandymanServicesDto>>
+                call: Call<MutableList<HandymanServiceDto>>,
+                response: Response<MutableList<HandymanServiceDto>>
             ) {
                 if (response.isSuccessful) {
                     response.body()?.let {
@@ -70,7 +70,7 @@ class HandymanServicesFragment : Fragment() {
                 }
             }
 
-            override fun onFailure(call: Call<MutableList<HandymanServicesDto>>, t: Throwable) {
+            override fun onFailure(call: Call<MutableList<HandymanServiceDto>>, t: Throwable) {
                 // Manejar error en la llamada a la API
             }
         })

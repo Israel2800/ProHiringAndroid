@@ -2,14 +2,14 @@ package com.israelaguilar.prohiringandroid.ui.adapters
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.israelaguilar.prohiringandroid.data.remote.model.HandymanServicesDto
+import com.israelaguilar.prohiringandroid.data.remote.model.HandymanServiceDto
 import com.israelaguilar.prohiringandroid.databinding.HandymanServiceElementBinding
 
 class HandymanServiceViewHolder(
     private val binding: HandymanServiceElementBinding
 ): RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(handymanService: HandymanServicesDto) {
+    fun bind(handymanService: HandymanServiceDto) {
 
         binding.apply {
             tvTitle.text = handymanService.title

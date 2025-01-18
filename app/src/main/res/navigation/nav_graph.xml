@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_handymanServicesFragment_to_secondFragment"
             app:destination="@id/secondFragment" />
+        <action
+            android:id="@+id/action_handymanServicesFragment_to_handymanServicesDetailFragment"
+            app:destination="@id/handymanServicesDetailFragment" />
     </fragment>
 
     <fragment
@@ -91,20 +94,22 @@
         <argument
             android:name="treeServiceId"
             app:argType="string" />
-       <action
+        <action
            android:id="@+id/action_treeServicesDetailFragment_to_treeServicesFragment"
            app:destination="@id/treeServicesFragment" />
    </fragment>
+    <fragment
+        android:id="@+id/handymanServicesDetailFragment"
+        android:name="com.israelaguilar.prohiringandroid.ui.fragments.HandymanServicesDetailFragment"
+        android:label="HandymanServicesDetailFragment"
+        tools:layout="@layout/fragment_handyman_services_detail">
+        <argument
+            android:name="handymanServiceId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_handymanServicesDetailFragment_to_handymanServicesFragment"
+            app:destination="@id/handymanServicesFragment" />
 
-
-    <!--    <activity
-            android:id="@+id/fourthActivity"
-            android:name="com.israelaguilar.prohiringandroid.ui.MyProjectsActivity"
-            android:label="activity_my_projects"
-            tools:layout="@layout/activity_my_projects" />-->
-
-
-
-
+    </fragment>
 
 </navigation>

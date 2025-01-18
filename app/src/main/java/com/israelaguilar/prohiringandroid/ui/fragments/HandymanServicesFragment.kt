@@ -35,7 +35,15 @@ class HandymanServicesFragment : Fragment() {
         // Configuración del RecyclerView
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         handymanServicesAdapter = HandymanServicesAdapter(mutableListOf()) { handymanService ->
-            // Acción al hacer click en un HandymanService (se puede implementar navegación o mostrar detalles)
+            // Aquí navegamos al TreeServicesDetailFragment y pasamos el ID
+            val action = handymanService.id?.let {
+                HandymanServicesFragmentDirections.actionHandymanServicesFragmentToHandymanServicesDetailFragment(
+                    it // Pasamos el id
+                )
+            }
+            if (action != null) {
+                findNavController().navigate(action)
+            }
         }
         binding.recyclerView.adapter = handymanServicesAdapter
 

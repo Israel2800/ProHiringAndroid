@@ -14,7 +14,7 @@
             android:id="@+id/appTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ProHiring"
+            android:text="@string/app_name"
             android:textSize="34sp"
             android:textColor="@color/primary_color"
             android:textStyle="bold"
@@ -26,7 +26,7 @@
         android:id="@+id/welcomeMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to your projects,"
+        android:text="@string/welcome_message"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_margin="16dp" />
@@ -35,7 +35,7 @@
         android:id="@+id/emailLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User Email"
+        android:text="@string/user_email"
         android:textSize="16sp"
         android:textStyle="bold"
         android:layout_marginHorizontal="16dp" />
@@ -44,7 +44,7 @@
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Plan your professional projects with this planner. Here you can add, modify and delete your projects!"
+        android:text="@string/long_description_text"
         android:textSize="14sp"
         android:lineSpacingExtra="4dp"
         android:layout_margin="16dp"
@@ -55,7 +55,7 @@
         android:id="@+id/serviceNameTextField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Insert a project"
+        android:hint="@string/insert_project_hint"
         android:inputType="text"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="8dp" />
@@ -79,14 +79,14 @@
             android:id="@+id/addServiceButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Service"
+            android:text="@string/add_service_button"
             android:layout_marginEnd="16dp" />
 
         <Button
             android:id="@+id/deleteServiceButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete Service" />
+            android:text="@string/delete_service_button" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

@@ -18,10 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.android.material.textfield.TextInputEditText
-import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseUser
 import com.google.android.gms.tasks.OnCompleteListener
 import com.israelaguilar.prohiringandroid.R
 import com.squareup.picasso.Picasso
@@ -68,10 +65,6 @@ class CreateCompanyAccountActivity : AppCompatActivity() {
         findViewById<Button>(R.id.createAccountButton).setOnClickListener {
             createAccount()
         }
-
-      /*  findViewById<Button>(R.id.signInWithGoogleButton).setOnClickListener {
-            signInWithGoogle()
-        }*/
     }
 
     private fun openImageChooser() {
@@ -93,7 +86,7 @@ class CreateCompanyAccountActivity : AppCompatActivity() {
     private fun requestReadExternalStoragePermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                showToast("Permission is required to access your images.")
+                showToast(getString(R.string.permission_required))
             }
             ActivityCompat.requestPermissions(
                 this,
@@ -116,10 +109,10 @@ class CreateCompanyAccountActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == PICK_IMAGE_REQUEST) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                showToast("Permission granted! You can now select an image.")
+                showToast(getString(R.string.permission_granted))
                 launchImagePicker()
             } else {
-                showToast("Permission denied. You cannot select an image.")
+                showToast(getString(R.string.permission_denied))
             }
         }
     }
@@ -141,7 +134,7 @@ class CreateCompanyAccountActivity : AppCompatActivity() {
         val contact = contactField.text.toString().trim()
 
         if (email.isEmpty() || password.isEmpty() || companyName.isEmpty() || services.isEmpty() || socialMedia.isEmpty() || contact.isEmpty() || imageUri == null) {
-            showToast("Please fill in all fields and select a logo")
+            showToast(getString(R.string.fill_all_fields))
             return
         }
 
@@ -159,7 +152,7 @@ class CreateCompanyAccountActivity : AppCompatActivity() {
                         }
                     }
                 } else {
-                    showToast("Error creating account: ${task.exception?.message}")
+                    showToast(getString(R.string.error_creating_account, task.exception?.message))
                 }
             })
     }
@@ -196,42 +189,25 @@ class CreateCompanyAccountActivity : AppCompatActivity() {
         db.collection("companies").document(userId).set(companyData)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    showToast("Company account created successfully")
-                    navigateToProfile(userId) // Aquí se pasa el userId (companyId)
+                    showToast(getString(R.string.company_account_created))
+                    navigateToProfile(userId)
                 } else {
-                    showToast("Error saving company data: ${task.exception?.message}")
+                    showToast(getString(R.string.error_saving_company_data, task.exception?.message))
                 }
             }
     }
-
 
     private fun navigateToProfile(companyId: String) {
         val intent = Intent(this, CompanyProfileActivity::class.java)
         intent.putExtra("COMPANY_ID", companyId)
         startActivity(intent)
-        finish()  // Cierra la actividad de creación de cuenta
+        finish()  // Close the account creation activity
     }
 
     private fun signInBtn(){
         val intent = Intent(this, CompanyLoginActivity::class.java)
         startActivity(intent)
     }
-
-    /*
-    private fun signInWithGoogle() {
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.server_client_id))
-            .requestEmail()
-            .build()
-
-        val googleSignInClient = GoogleSignIn.getClient(this, gso)
-        googleSignInClient.signInIntent.also { intent ->
-            startActivityForResult(intent, 100)
-        }
-    }
-     */
-
-
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

@@ -89,7 +89,7 @@ class MyProjectsFragment : Fragment() {
             .collection("services")
             .addSnapshotListener { snapshot, error ->
                 if (error != null) {
-                    Log.w("MyProjectsFragment", "Error al escuchar cambios", error)
+                    Log.w("MyProjectsFragment", "Error listening to changes", error)
                     return@addSnapshotListener
                 }
 
@@ -108,7 +108,7 @@ class MyProjectsFragment : Fragment() {
         val serviceColor = serviceColorPicker.selectedItem.toString()
 
         if (serviceName.isEmpty()) {
-            showError("Por favor ingrese el nombre del servicio.")
+            showError(getString(R.string.enter_service_name))
             return
         }
 
@@ -129,7 +129,7 @@ class MyProjectsFragment : Fragment() {
                 loadUserServices(userId)
             }
             .addOnFailureListener {
-                showError("Error al agregar el servicio.")
+                showError(getString(R.string.error_adding_service))
             }
     }
 
@@ -137,7 +137,7 @@ class MyProjectsFragment : Fragment() {
         selectedService = service
         serviceNameTextField.setText(service.name)
         serviceColorPicker.setSelection(colors.indexOf(service.color))
-        addServiceButton.text = "Edit Service"
+        addServiceButton.text = getString(R.string.edit_service)
     }
 
     private fun updateService(service: Service) {
@@ -157,11 +157,11 @@ class MyProjectsFragment : Fragment() {
             .addOnSuccessListener {
                 serviceNameTextField.text.clear()
                 selectedService = null
-                addServiceButton.text = "Add Service"
+                addServiceButton.text = getString(R.string.add_service)
                 loadUserServices(userId)
             }
             .addOnFailureListener {
-                showError("Error al actualizar el servicio.")
+                showError(getString(R.string.error_updating_service))
             }
     }
 
@@ -169,9 +169,9 @@ class MyProjectsFragment : Fragment() {
         selectedService?.let { service ->
             // Crear el mensaje de confirmación
             val confirmationDialog = AlertDialog.Builder(requireContext())
-                .setTitle("Confirmar eliminación")
-                .setMessage("¿Está seguro que desea eliminar el siguiente servicio?\n\n${service.name}")
-                .setPositiveButton("Sí") { dialog, which ->
+                .setTitle(getString(R.string.confirm_deletion))
+                .setMessage(getString(R.string.confirm_deletion_message, service.name))
+                .setPositiveButton(getString(R.string.yes)) { dialog, which ->
                     // Eliminar el servicio si el usuario confirma
                     val userId = FirebaseAuth.getInstance().currentUser?.uid ?: return@setPositiveButton
                     db.collection("users")
@@ -183,14 +183,14 @@ class MyProjectsFragment : Fragment() {
                             loadUserServices(userId)
                         }
                         .addOnFailureListener {
-                            showError("Error al eliminar el servicio.")
+                            showError(getString(R.string.error_deleting_service))
                         }
                 }
-                .setNegativeButton("No", null) // Cerrar el diálogo si el usuario cancela
+                .setNegativeButton(getString(R.string.no), null)
                 .create()
 
             confirmationDialog.show()
-        } ?: showError("No hay un servicio seleccionado.")
+        } ?: showError(getString(R.string.no_service_selected))
     }
 
 

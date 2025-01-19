@@ -83,7 +83,7 @@ class CompanyProfileFragment : Fragment() {
             val intent = Intent(Intent.ACTION_DIAL, phoneUri)
             startActivity(intent)
         } ?: run {
-            showToast("Número de contacto no disponible")
+            showToast("Contact number unavailable.")
         }
     }
 
@@ -93,7 +93,7 @@ class CompanyProfileFragment : Fragment() {
             val intent = Intent(Intent.ACTION_SENDTO, emailUri)
             startActivity(intent)
         } ?: run {
-            showToast("Correo no disponible")
+            showToast("Email unavailable.")
         }
     }
 

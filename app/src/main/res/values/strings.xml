@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">ProHiring</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="price">Price: $%1$s</string>
     <string name="duration">Duration: %1$s</string>
     <string name="details">Details:\n%1$s</string>
     <string name="additional">Additional:\n%1$s</string>
     <string name="description">Description:\n%1$s</string>
-    <string name="id_received">Id recibido %1$s</string>
-    <string name="error_conexion">Error: No hay conexión disponible</string>
+    <string name="id_received">Id received %1$s</string>
+    <string name="error_conexion">Error: No available connection</string>
     <string name="title">Title</string>
     <string name="card_description">Description</string>
     <string name="card_price">Price</string>
@@ -25,55 +25,164 @@
     <string name="understood_button">Understood</string>
     <string name="exit_button">Exit</string>
     <string name="permission_denied_message">Location permission was permanently denied.</string>
-    <string name="data_load_error">Error al cargar los datos. Por favor intenta de nuevo.</string>
-    <string name="no_coordinates_found">No se encontraron coordenadas para esta ubicación.</string>
-    <string name="user_created_success">Usuario creado exitosamente</string>
-    <string name="email_verification_sent">El correo de verificación ha sido enviado</string>
-    <string name="email_verification_failed">No se pudo enviar el correo de verificación</string>
+    <string name="data_load_error">Error loading data. Please try again.</string>
+    <string name="no_coordinates_found">No coordinates found for this location.</string>
+    <string name="user_created_success">User created successfully</string>
+    <string name="email_verification_sent">Verification email has been sent</string>
+    <string name="email_verification_failed">Failed to send verification email</string>
 
-    <string name="reset_password_title">Restablecer contraseña</string>
-    <string name="reset_password_message">Ingrese su correo electrónico para recibir el enlace de restablecimiento</string>
-    <string name="send_button">Enviar</string>
-    <string name="cancel_button">Cancelar</string>
-    <string name="reset_email_sent">El correo para restablecer la contraseña ha sido enviado</string>
-    <string name="reset_email_failed">El enlace no se ha podido enviar</string>
-    <string name="invalid_email">Favor de ingresar una dirección de correo válida</string>
+    <string name="reset_password_title">Reset Password</string>
+    <string name="reset_password_message">Enter your email to receive the reset link</string>
+    <string name="send_button">Send</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="reset_email_sent">Reset email has been sent</string>
+    <string name="reset_email_failed">Failed to send reset link</string>
+    <string name="invalid_email">Please enter a valid email address</string>
 
-    <string name="email_required">Se requiere el correo</string>
-    <string name="invalid_email_format">El correo no tiene un formato válido</string>
-    <string name="password_required">Se requiere una contraseña</string>
-    <string name="password_length">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="email_required">Email is required</string>
+    <string name="invalid_email_format">Invalid email format</string>
+    <string name="password_required">Password is required</string>
+    <string name="password_length">Password must be at least 6 characters long</string>
 
-    <string name="invalid_password">La contraseña no es válida</string>
-    <string name="account_exists_with_different_credentials">Error: Una cuenta ya existe con el mismo correo, pero con diferentes datos de ingreso</string>
-    <string name="email_already_in_use">Error: el correo electrónico ya está en uso con otra cuenta.</string>
-    <string name="session_expired">Error: La sesión ha expirado. Favor de ingresar nuevamente.</string>
-    <string name="user_not_found">Error: No existe el usuario con la información proporcionada.</string>
-    <string name="weak_password">La contraseña porporcionada es inválida</string>
-    <string name="network_unavailable">Red no disponible o se interrumpió la conexión</string>
-    <string name="authentication_failed">Error. No se pudo autenticar exitosamente.</string>
-    <string name="authentication_success">Autenticación exitosa</string>
-    <string name="verification_email_sent">El correo de verificación ha sido reenviado</string>
-    <string name="verification_email_failed">No se pudo enviar el correo</string>
-    <string name="session_closed">Sesión cerrada exitosamente</string>
-    <string name="connection_restored">Conexión restablecida</string>
-    <string name="no_connection">Sin conexión</string>
+    <string name="invalid_password">Invalid password</string>
+    <string name="account_exists_with_different_credentials">Error: An account already exists with the same email but different sign-in</string>
+    <string name="email_already_in_use">Error: Email is already in use with another account.</string>
+    <string name="session_expired">Error: Session expired. Please log in again.</string>
+    <string name="user_not_found">Error: No user found with the provided information.</string>
+    <string name="weak_password">The provided password is invalid</string>
+    <string name="network_unavailable">Network unavailable or connection interrupted</string>
+    <string name="authentication_failed">Error. Failed to authenticate successfully.</string>
+    <string name="authentication_success">Authentication successful</string>
+    <string name="verification_email_sent">Verification email has been resent</string>
+    <string name="verification_email_failed">Failed to send verification email</string>
+    <string name="session_closed">Session successfully closed</string>
+    <string name="connection_restored">Connection restored</string>
+    <string name="no_connection">No connection</string>
 
-    <string name="hint_email">Correo electrónico</string>
-    <string name="hint_password">Contraseña</string>
-    <string name="btn_login">Ingresar</string>
-    <string name="btn_register">Registrarse</string>
-    <string name="forgot_password">¿Olvidó su contraseña? Restablecer aquí</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_register">Register</string>
+    <string name="forgot_password">Forgot your password? Reset here</string>
     <string name="copyright">© DADM12</string>
 
-    <string name="email_user">Correo usuario</string>
-    <string name="email_not_verified">¡Correo no verificado!</string>
-    <string name="logout">Cerrar sesión</string>
+    <string name="email_user">User email</string>
+    <string name="email_not_verified">Email not verified</string>
+    <string name="logout">Logout</string>
     <string name="location">Location</string>
-    <string name="forward_verification_email">Reenviar correo de verificación</string>
+    <string name="forward_verification_email">Resend verification email</string>
     <string name="ourWork">See our work!</string>
     <string name="edit_service">Edit Service</string>
     <string name="add_service">Add service</string>
-    <string name="logout_button">Cerrar sesión</string>
+    <string name="logout_button">Logout</string>
+    <string name="logout_message">Are you sure you want to log out?</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="enter_service_name">Please enter the service name.</string>
+    <string name="error_adding_service">Error adding the service.</string>
+    <string name="error_updating_service">Error updating the service.</string>
+
+    <string name="confirm_deletion">Confirm deletion</string>
+    <string name="confirm_deletion_message">Are you sure you want to delete the following service?\n\n%s</string>
+    <string name="no">No</string>
+    <string name="error_deleting_service">Error deleting the service.</string>
+    <string name="no_service_selected">No service selected.</string>
+
+    <string name="error_empty_fields">Please enter a valid email and password.</string>
+    <string name="error_login_failed">Error logging in: %1$s</string>
+    <string name="error_user_not_found">User not found. Please verify your account.</string>
+    <string name="error_empty_email_for_password_reset">Please enter a valid email to reset your password.</string>
+    <string name="success_password_reset_email">Password recovery email sent. Check your inbox.</string>
+    <string name="error_password_reset_email">Error trying to send the recovery email.</string>
+
+    <string name="error_loading_logo">Error loading the logo</string>
+    <string name="error_loading_company_data">Error loading company data</string>
+    <string name="company_not_found">Company not found</string>
+
+    <string name="invalid_email_password">Invalid email or password</string>
+    <string name="account_created_successfully">Account successfully created</string>
+    <string name="user_saved_firestore">User saved to Firestore</string>
+    <string name="error_saving_user">Error saving user: %1$s</string>
+    <string name="user_not_authenticated">Error: User not authenticated</string>
+
+    <string name="permission_required">Permission is required to access your images.</string>
+    <string name="permission_granted">Permission granted! You can now select an image.</string>
+    <string name="permission_denied">Permission denied. You cannot select an image.</string>
+    <string name="fill_all_fields">Please fill in all fields and select a logo.</string>
+    <string name="error_creating_account">Error creating account: %1$s</string>
+    <string name="company_account_created">Company account created successfully.</string>
+    <string name="error_saving_company_data">Error saving company data: %1$s</string>
+
+    <string name="error_loading_services">Error loading services</string>
+    <string name="error_empty_service_name">Please enter the service name.</string>
+    <string name="new_service_status">New</string>
+    <string name="edit_service_button">Edit Service</string>
+    <string name="updated_service_status">Updated</string>
+    <string name="add_service_button">Add Service</string>
+
+    <string name="sign_in_as_pro">Sign in as a Pro</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Login</string>
+    <string name="already_have_account">Already have an account? </string>
+    <string name="sign_up">Sign up</string>
+    <string name="sign_in_as_user">Sign in as a user</string>
+
+    <string name="company_name">Company Name</string>
+    <string name="services_label">Services:</string>
+    <string name="services_data">Service details from Firebase</string>
+    <string name="social_media_label">Social Media:</string>
+    <string name="social_media_data">Social media details from Firebase</string>
+    <string name="contact_label">Contact Information:</string>
+    <string name="contact_data">Contact info from Firebase</string>
+    <string name="email_label">Email:</string>
+    <string name="email_data">Email info from Firebase</string>
+
+    <string name="create_account_subtitle">Let’s create your account.</string>
+    <string name="create_account_button">Create Account</string>
+    <string name="sign_in_button">Sign in</string>
+
+    <string name="create_account_pro">Let’s create your Pro account.</string>
+    <string name="company_name_hint">Company name</string>
+    <string name="services_provided_hint">Services provided</string>
+    <string name="social_media_hint">Social media</string>
+    <string name="phone_number_hint">Phone number</string>
+    <string name="company_logo_desc">Company logo</string>
+    <string name="select_logo">Select logo</string>
+    <string name="create_account">Create Account</string>
+    <string name="sign_in">Sign in</string>
+    <string name="pro_button">Are you a Pro?</string>
+
+    <string name="welcome_message">Welcome to your projects,</string>
+    <string name="user_email">User Email</string>
+    <string name="project_planner_description">Plan your professional projects with this planner. Here you can add, modify, and delete your projects!</string>
+    <string name="insert_project">Insert a project</string>
+    <string name="delete_service">Delete Service</string>
+    <string name="visit_companies_message">Visit all the professional companies!</string>
+
+    <string name="back_button">Back</string>
+    <string name="handyman_services">Handyman Services</string>
+    <string name="discover_services_description">
+        Explore a wide range of handyman services offered by various companies and find the perfect solution for your needs. Whether it is home repairs, maintenance, or improvements, discover reliable professionals who can help bring your projects to life with ease and efficiency. 🔨🏡
+    </string>
+
+    <string name="title_text">Title</string>
+    <string name="description_text">Description</string>
+    <string name="popular_projects">Popular Projects</string>
+    <string name="long_description_text">Plan your professional projects with this planner. Here you can add, modify and delete your projects!</string>
+    <string name="insert_project_hint">Insert a project</string>
+    <string name="delete_service_button">Delete Service</string>
+    <string name="description_text_services_section">Explore all kinds of services that companies offer!</string>
+    <string name="tree_services">Tree Services</string>
+    <string name="discover_text">Discover top rated tree care services tailored to your needs! 🌲 View all the services that local companies offer, compare options, and book the perfect solution for your trees. 🌳</string>
+    <string name="services">Services</string>
+    <string name="project_title">Project Title</string>
+    <string name="service_name">Service Name</string>
+    <string name="status">Status</string>
+    <string name="service_status">Service Status</string>
+    <string name="home">Home</string>
+    <string name="companies">Companies</string>
+    <string name="my_projects">My Projects</string>
+
 
 </resources>

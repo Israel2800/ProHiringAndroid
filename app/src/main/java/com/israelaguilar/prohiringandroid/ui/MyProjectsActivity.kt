@@ -84,7 +84,7 @@ class MyProjectsActivity : AppCompatActivity() {
             .collection("services")
             .addSnapshotListener { snapshot, error ->
                 if (error != null) {
-                    Log.w("MyProjectsActivity", "Error al escuchar cambios", error)
+                    Log.w("MyProjectsActivity", getString(R.string.error_loading_services), error)
                     return@addSnapshotListener
                 }
 
@@ -103,7 +103,7 @@ class MyProjectsActivity : AppCompatActivity() {
         val serviceColor = serviceColorPicker.selectedItem.toString()
 
         if (serviceName.isEmpty()) {
-            showError("Por favor ingrese el nombre del servicio.")
+            showError(getString(R.string.error_empty_service_name))
             return
         }
 
@@ -111,7 +111,7 @@ class MyProjectsActivity : AppCompatActivity() {
         val newService = Service(
             id = "",
             name = serviceName,
-            status = "New",
+            status = getString(R.string.new_service_status),
             color = serviceColor
         )
 
@@ -124,7 +124,7 @@ class MyProjectsActivity : AppCompatActivity() {
                 loadUserServices(userId)
             }
             .addOnFailureListener {
-                showError("Error al agregar el servicio.")
+                showError(getString(R.string.error_adding_service))
             }
     }
 
@@ -132,7 +132,7 @@ class MyProjectsActivity : AppCompatActivity() {
         selectedService = service
         serviceNameTextField.setText(service.name)
         serviceColorPicker.setSelection(colors.indexOf(service.color))
-        addServiceButton.text = "Edit Service"
+        addServiceButton.text = getString(R.string.edit_service_button)
     }
 
     private fun updateService(service: Service) {
@@ -140,7 +140,7 @@ class MyProjectsActivity : AppCompatActivity() {
         val updatedService = Service(
             id = service.id,
             name = serviceNameTextField.text.toString(),
-            status = "Updated",
+            status = getString(R.string.updated_service_status),
             color = serviceColorPicker.selectedItem.toString()
         )
 
@@ -152,11 +152,11 @@ class MyProjectsActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 serviceNameTextField.text.clear()
                 selectedService = null
-                addServiceButton.text = "Add Service"
+                addServiceButton.text = getString(R.string.add_service_button)
                 loadUserServices(userId)
             }
             .addOnFailureListener {
-                showError("Error al actualizar el servicio.")
+                showError(getString(R.string.error_updating_service))
             }
     }
 
@@ -172,9 +172,9 @@ class MyProjectsActivity : AppCompatActivity() {
                     loadUserServices(userId)
                 }
                 .addOnFailureListener {
-                    showError("Error al eliminar el servicio.")
+                    showError(getString(R.string.error_deleting_service))
                 }
-        } ?: showError("No hay un servicio seleccionado.")
+        } ?: showError(getString(R.string.no_service_selected))
     }
 
     private fun showError(message: String) {

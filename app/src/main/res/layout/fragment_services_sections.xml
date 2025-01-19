@@ -22,28 +22,24 @@
                 android:id="@+id/proHiringLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ProHiring"
+                android:text="@string/app_name"
                 android:textSize="34sp"
                 android:textStyle="bold"
                 android:textColor="@color/primary_color"
                 android:layout_weight="1" />
 
-
         </LinearLayout>
 
-
-        <!-- Description Text -->
         <TextView
             android:id="@+id/tvDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textStyle="italic"
-            android:text="Explore all kind of services that companies offer!"
+            android:text="@string/description_text_services_section"
             android:textSize="16sp"
             android:layout_marginBottom="16dp" />
 
-        <!-- Tree Services Section -->
         <LinearLayout
             android:id="@+id/treeServicesSection"
             android:layout_width="match_parent"
@@ -64,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Tree Services"
+                android:text="@string/tree_services"
                 android:textColor="@color/secondayColor"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -91,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Handyman Services"
+                android:text="@string/handyman_services"
                 android:textColor="@color/secondayColor"
                 android:textSize="18sp"
                 android:textStyle="bold" />

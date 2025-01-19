@@ -18,7 +18,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginEnd="16dp"
-            android:src="@drawable/house"
+            android:src="@drawable/company"
             android:scaleType="centerCrop" />
 
         <LinearLayout
@@ -31,7 +31,7 @@
                 android:id="@+id/companyName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Company Name"
+                android:text="@string/company_name"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
                 android:id="@+id/services"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Services"
+                android:text="@string/services"
                 android:textSize="14sp"
                 android:layout_marginTop="4dp" />
         </LinearLayout>

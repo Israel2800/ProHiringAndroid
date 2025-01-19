@@ -25,7 +25,7 @@ class ColorSpinnerAdapter(
         val textView = super.getView(position, convertView, parent) as TextView
         textView.text = colors[position]
         textView.setBackgroundColor(Color.parseColor(colorCodes[position]))
-        textView.setTextColor(Color.WHITE) // Ajusta según el contraste necesario
+        textView.setTextColor(Color.WHITE)
         return textView
     }
 }

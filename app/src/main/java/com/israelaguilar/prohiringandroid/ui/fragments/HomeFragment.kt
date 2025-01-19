@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
+import com.israelaguilar.prohiringandroid.R
 import com.israelaguilar.prohiringandroid.data.PopularProjectsRepository
 import com.israelaguilar.prohiringandroid.data.remote.RetrofitHelper
 import com.israelaguilar.prohiringandroid.data.remote.model.PopularProject
@@ -119,21 +120,22 @@ class HomeFragment : Fragment() {
     private fun logout() {
         // Mostrar un AlertDialog para confirmar la acción
         val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext())
-        builder.setTitle("Cerrar sesión")
-        builder.setMessage("¿Estás seguro de que deseas cerrar sesión?")
-        builder.setPositiveButton("Sí") { _, _ ->
+        builder.setTitle(getString(R.string.logout)) // Usar la cadena de texto "logout" desde strings.xml
+        builder.setMessage(getString(R.string.logout_message)) // Mensaje del dialogo, se debe agregar en strings.xml
+        builder.setPositiveButton(getString(R.string.yes)) { _, _ ->  // Botón positivo
             // Acción de cerrar sesión
             firebaseAuth.signOut()
             // Redirigir al LoginActivity después de cerrar sesión
             startActivity(Intent(requireContext(), LoginActivity::class.java))
             requireActivity().finish() // Finaliza la actividad actual
         }
-        builder.setNegativeButton("Cancelar") { dialog, _ ->
+        builder.setNegativeButton(getString(R.string.cancel)) { dialog, _ -> // Botón negativo
             // Cancelar la acción, solo cerrar el diálogo
             dialog.dismiss()
         }
         // Mostrar el diálogo
         builder.create().show()
     }
+
 
 }

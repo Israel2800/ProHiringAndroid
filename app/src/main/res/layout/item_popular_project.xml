@@ -3,15 +3,14 @@
     android:layout_width="160dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingEnd="16dp"
     android:paddingTop="10dp"
     android:paddingBottom="10dp">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="160dp"
-        android:layout_height="140dp"
-        android:src="@drawable/house"
+        android:layout_height="160dp"
+        android:src="@drawable/company"
         android:scaleType="centerCrop" />
     <TextView
         android:id="@+id/title"
@@ -19,7 +18,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingTop="8dp"
-        android:text="Project Title"
+        android:text="@string/project_title"
         android:textSize="16sp" />
 
 

@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:hint="Email"
+                android:hint="@string/email_hint"
                 app:startIconDrawable="@drawable/ic_email">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -72,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:hint="Password"
+                android:hint="@string/password_hint"
                 app:passwordToggleEnabled="true"
                 app:startIconDrawable="@drawable/ic_lock">
 
@@ -89,7 +89,7 @@
                 android:layout_height="48dp"
                 android:layout_margin="16dp"
                 android:backgroundTint="@color/card_color_bg"
-                android:text="Login"
+                android:text="@string/login_button"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Forgot your password? Reset here"
+                android:text="@string/forgot_password"
                 android:textColor="@color/card_color_bg"
                 android:textSize="14sp" />
 
@@ -115,14 +115,14 @@
                     android:id="@+id/alreadyAccountText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Already have an account?"
+                    android:text="@string/already_have_account"
                     android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/btnRegistrarse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sign up"
+                    android:text="@string/sign_up"
                     android:textSize="14sp"
                     android:textColor="@color/card_color_bg"
                     android:clickable="true"
@@ -137,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                android:text="Are you a Pro?"
+                android:text="@string/pro_button"
                 android:textColor="@color/card_color_bg"
                 android:background="@android:color/transparent"
                 android:textStyle="bold" />

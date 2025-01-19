@@ -26,7 +26,7 @@
                     android:id="@+id/proHiringLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ProHiring"
+                    android:text="@string/app_name"
                     android:textSize="34sp"
                     android:textStyle="bold"
                     android:textColor="@color/primary_color"
@@ -47,7 +47,7 @@
             android:id="@+id/companyNameLabelCC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Company Name"
+            android:text="@string/company_name"
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -79,7 +79,7 @@
                 android:id="@+id/servicesLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Services:"
+                android:text="@string/services_label"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:gravity="start" />
@@ -89,7 +89,7 @@
             android:id="@+id/servicesDataLabelCC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Service details from Firebase"
+            android:text="@string/services_data"
             android:textSize="16sp"
             android:paddingTop="8dp" />
 
@@ -110,7 +110,7 @@
                 android:id="@+id/socialMediaLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Social Media:"
+                android:text="@string/social_media_label"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:gravity="start" />
@@ -120,7 +120,7 @@
             android:id="@+id/socialMediaDataLabelCC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Social media details from Firebase"
+            android:text="@string/social_media_data"
             android:textSize="16sp"
             android:paddingTop="8dp" />
 
@@ -141,7 +141,7 @@
                 android:id="@+id/contactLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Contact Information:"
+                android:text="@string/contact_label"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:gravity="start" />
@@ -151,7 +151,7 @@
             android:id="@+id/contactDataLabelCC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Contact info from Firebase"
+            android:text="@string/contact_data"
             android:textSize="16sp"
             android:paddingTop="8dp" />
 
@@ -172,7 +172,7 @@
                 android:id="@+id/emailLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email:"
+                android:text="@string/email_label"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:gravity="start" />
@@ -182,7 +182,7 @@
             android:id="@+id/emailDataLabelCC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email info from Firebase"
+            android:text="@string/email_data"
             android:textSize="16sp"
             android:paddingTop="8dp" />
     </LinearLayout>

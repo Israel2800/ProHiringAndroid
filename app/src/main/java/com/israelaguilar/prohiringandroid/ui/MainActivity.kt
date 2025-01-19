@@ -1,7 +1,6 @@
 package com.israelaguilar.prohiringandroid.ui
 
 import android.animation.ObjectAnimator
-import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.ActivityInfo
 import android.net.ConnectivityManager
@@ -19,7 +18,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.israelaguilar.prohiringandroid.R
 import com.israelaguilar.prohiringandroid.databinding.ActivityMainBinding
-import com.israelaguilar.prohiringandroid.ui.fragments.GamesListFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -57,14 +55,6 @@ class MainActivity : AppCompatActivity() {
 
         // Vincula el BottomNavigationView con el NavController
         bottomNavigationView.setupWithNavController(navController)
-
-
-
-        //val navController = findNavController(R.id.nav_host_fragment)
-        //val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav)
-        //bottomNav.setupWithNavController(navController)
-
-
 
         // Pasamos la orientación en portrait
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT

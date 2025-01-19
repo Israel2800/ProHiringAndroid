@@ -44,7 +44,7 @@ class CompanyProfileActivity : AppCompatActivity() {
             companyId = currentUser.uid  // Usar el UID del usuario autenticado como companyId
             companyId?.let { loadCompanyProfile(it) }
         } else {
-            Toast.makeText(this, "No estás logueado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.error_login_failed, getString(R.string.user_not_found)), Toast.LENGTH_SHORT).show()
         }
 
         // Configurar el botón de cierre de sesión con confirmación
@@ -79,26 +79,26 @@ class CompanyProfileActivity : AppCompatActivity() {
                         storageRef.downloadUrl.addOnSuccessListener { uri ->
                             Picasso.get().load(uri).into(logoImageView)
                         }.addOnFailureListener {
-                            Toast.makeText(this, "Error cargando el logo", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, getString(R.string.error_loading_logo), Toast.LENGTH_SHORT).show()
                         }
                     }
                 } else {
-                    Toast.makeText(this, "Company not found", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.company_not_found), Toast.LENGTH_SHORT).show()
                 }
             }
             .addOnFailureListener {
-                Toast.makeText(this, "Error al cargar los datos de la compañía", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.error_loading_company_data), Toast.LENGTH_SHORT).show()
             }
     }
 
     private fun showLogoutConfirmationDialog() {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Cerrar sesión")
-        builder.setMessage("¿Está seguro de que desea cerrar sesión?")
-        builder.setPositiveButton("Sí") { _, _ ->
+        builder.setTitle(getString(R.string.logout))
+        builder.setMessage(getString(R.string.logout_message))
+        builder.setPositiveButton(getString(R.string.yes)) { _, _ ->
             performLogout()
         }
-        builder.setNegativeButton("Cancelar") { dialog, _ ->
+        builder.setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
             dialog.dismiss()
         }
         builder.create().show()
@@ -106,7 +106,7 @@ class CompanyProfileActivity : AppCompatActivity() {
 
     private fun performLogout() {
         FirebaseAuth.getInstance().signOut()  // Cerrar sesión
-        Toast.makeText(this, "Has cerrado sesión correctamente", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.session_closed), Toast.LENGTH_SHORT).show()
         finish()  // Volver a la pantalla de inicio o actividad previa
     }
 }

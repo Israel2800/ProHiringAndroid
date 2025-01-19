@@ -52,8 +52,8 @@ class ServicesSectionsFragment : Fragment() {
         // Limpiar la pila y navegar al nuevo fragmento sin que se mantengan los anteriores en segundo plano
         findNavController().navigate(action)
 
-        // Si prefieres usar un fragmento manual, se puede hacer lo siguiente:
-/*        val fragment = if (isTreeServices) TreeServicesFragment() else GamesListFragment()
+        // Fragmento manual, se puede hacer lo siguiente:
+        /*val fragment = if (isTreeServices) TreeServicesFragment() else GamesListFragment()
         requireActivity().supportFragmentManager.beginTransaction()
              .replace(R.id.fragment_container, fragment)
             .addToBackStack(null)

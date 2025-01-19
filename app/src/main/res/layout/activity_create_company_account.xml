@@ -14,7 +14,7 @@
             android:id="@+id/appTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ProHiring"
+            android:text="@string/app_name"
             android:textSize="34sp"
             android:textColor="@color/primary_color"
             android:layout_marginTop="25dp"
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Let’s create your Pro account."
+            android:text="@string/create_account_pro"
             android:textSize="20sp"
             android:layout_marginBottom="16dp" />
 
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Email"
+            android:hint="@string/email_hint"
             app:startIconDrawable="@drawable/ic_email">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Password"
+            android:hint="@string/password_hint"
             app:passwordToggleEnabled="true"
             app:startIconDrawable="@drawable/ic_lock">
 
@@ -69,8 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Company name"
-            >
+            android:hint="@string/company_name_hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/companyNameFieldC"
@@ -85,8 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Services provided"
-            >
+            android:hint="@string/services_provided_hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/servicesFieldC"
@@ -101,8 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Social media"
-            >
+            android:hint="@string/social_media_hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/socialMediaFieldC"
@@ -117,8 +114,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="Phone number"
-            >
+            android:hint="@string/phone_number_hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/contactFieldC"
@@ -140,14 +136,14 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_marginEnd="8dp"
-                android:src="@drawable/house"
-                android:contentDescription="Company logo" />
+                android:src="@drawable/company"
+                android:contentDescription="@string/company_logo_desc" />
 
             <Button
                 android:id="@+id/selectLogoButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select logo"
+                android:text="@string/select_logo"
                 android:layout_marginStart="8dp"
                 android:textColor="@color/card_color_bg"
                 android:backgroundTint="#D3D3D3" />
@@ -158,7 +154,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Create Account"
+            android:text="@string/create_account"
             android:onClick="createAccountTapped"
             android:importantForAccessibility="yes" />
 
@@ -172,7 +168,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Already have an account?"
+                android:text="@string/already_have_account"
                 android:textSize="14sp"
                 android:layout_gravity="start"/>
 
@@ -180,7 +176,7 @@
                 android:id="@+id/signInBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sign in"
+                android:text="@string/sign_in"
                 android:textSize="14sp"
                 android:textColor="#007AFF"
                 android:layout_marginStart="4dp"

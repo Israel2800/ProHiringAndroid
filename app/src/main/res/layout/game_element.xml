@@ -7,7 +7,6 @@
     android:padding="@dimen/eight"
     android:background="@android:color/white">
 
-    <!-- Single CardView containing all the content -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardAllContent"
         android:layout_width="match_parent"
@@ -25,7 +24,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- Image on the left half -->
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/ivThumbnail"
                 android:layout_width="0dp"
@@ -37,7 +35,6 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintWidth_percent="0.4" />
 
-            <!-- Title -->
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="0dp"
@@ -53,7 +50,6 @@
                 android:layout_marginStart="8dp"
                 tools:text="@string/title" />
 
-            <!-- Description -->
             <TextView
                 android:id="@+id/tvDescription"
                 android:layout_width="0dp"

@@ -20,7 +20,7 @@
                 android:id="@+id/proHiringLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ProHiring"
+                android:text="@string/app_name"
                 android:textSize="34sp"
                 android:textStyle="bold"
                 android:textColor="@color/primary_color"
@@ -43,7 +43,7 @@
             android:gravity="start"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
-            android:text="Popular Projects"
+            android:text="@string/popular_projects"
             android:textColor="@color/secondayColor"
             android:textSize="18sp"
             android:textStyle="bold" />

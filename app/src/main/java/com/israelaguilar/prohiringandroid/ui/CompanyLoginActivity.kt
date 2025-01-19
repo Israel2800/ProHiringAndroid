@@ -26,9 +26,6 @@ class CompanyLoginActivity : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     private lateinit var btnSignInUser: Button
 
-
-    //private val RC_SIGN_IN = 9001 // For Google sign-in
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_company_login)
@@ -45,8 +42,7 @@ class CompanyLoginActivity : AppCompatActivity() {
         loginButton.setOnClickListener { loginTapped() }
         forgotPasswordButton.setOnClickListener { forgotPasswordTapped() }
         createNewAccountButton.setOnClickListener { createAccountTapped() }
-        btnSignInUser.setOnClickListener { signInUserTapped() } // Configurar el OnClickListener
-
+        btnSignInUser.setOnClickListener { signInUserTapped() }
 
         // Check if already logged in
         val currentUser = auth.currentUser
@@ -60,13 +56,12 @@ class CompanyLoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-
     private fun loginTapped() {
         val email = accountField.text.toString()
         val password = passwordField.text.toString()
 
         if (email.isEmpty() || password.isEmpty()) {
-            showMessage("Por favor, ingresa un correo y contraseña válidos.")
+            showMessage(getString(R.string.error_empty_fields))
             return
         }
 
@@ -79,7 +74,7 @@ class CompanyLoginActivity : AppCompatActivity() {
                     val user = auth.currentUser
                     user?.let { checkUserTypeAndNavigate(it) }
                 } else {
-                    showMessage("Error al iniciar sesión: ${task.exception?.localizedMessage}")
+                    showMessage(getString(R.string.error_login_failed, task.exception?.localizedMessage))
                 }
             }
     }
@@ -100,7 +95,7 @@ class CompanyLoginActivity : AppCompatActivity() {
                                 storeSession(user.uid, "user")
                                 navigateToUserHome()
                             } else {
-                                showMessage("Usuario no encontrado. Verifica tu cuenta.")
+                                showMessage(getString(R.string.error_user_not_found))
                             }
                         }
                 }
@@ -138,16 +133,16 @@ class CompanyLoginActivity : AppCompatActivity() {
     private fun forgotPasswordTapped() {
         val email = accountField.text.toString()
         if (email.isEmpty()) {
-            showMessage("Por favor, ingresa un correo válido para recuperar la contraseña.")
+            showMessage(getString(R.string.error_empty_email_for_password_reset))
             return
         }
 
         auth.sendPasswordResetEmail(email)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    showMessage("Correo de recuperación enviado. Revisa tu bandeja de entrada.")
+                    showMessage(getString(R.string.success_password_reset_email))
                 } else {
-                    showMessage("Error al enviar el correo de recuperación: ${task.exception?.localizedMessage}")
+                    showMessage(getString(R.string.error_password_reset_email, task.exception?.localizedMessage))
                 }
             }
     }
@@ -158,26 +153,26 @@ class CompanyLoginActivity : AppCompatActivity() {
     }
 
     /*
-    // Google sign-in
-    private fun signInWithGoogleTapped() {
-        val signInIntent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
-    }
+// Google sign-in
+private fun signInWithGoogleTapped() {
+    val signInIntent = googleSignInClient.signInIntent
+    startActivityForResult(signInIntent, RC_SIGN_IN)
+}
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == RC_SIGN_IN) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                val account = task.getResult(ApiException::class.java)
-                firebaseAuthWithGoogle(account!!)
-            } catch (e: ApiException) {
-                showMessage("Error al iniciar sesión con Google: ${e.localizedMessage}")
-            }
+    if (requestCode == RC_SIGN_IN) {
+        val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+        try {
+            val account = task.getResult(ApiException::class.java)
+            firebaseAuthWithGoogle(account!!)
+        } catch (e: ApiException) {
+            showMessage("Error al iniciar sesión con Google: ${e.localizedMessage}")
         }
     }
-     */
+}
+ */
     /*
     private fun firebaseAuthWithGoogle(account: GoogleSignInAccount) {
         val credential: AuthCredential = GoogleAuthProvider.getCredential(account.idToken, null)
@@ -192,4 +187,8 @@ class CompanyLoginActivity : AppCompatActivity() {
             }
     }
     */
+
 }
+
+
+

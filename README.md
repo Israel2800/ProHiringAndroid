@@ -20,7 +20,7 @@ The logo represents the tools used by professionals registered on ProHiring to p
 ---
 
 ## Justification for Device, Operating System Version, and Supported Orientations
-The Android operating system was chosen due to the large number of users currently using devices with this operating system. This project targets android version with a minSdk = 24, which offers enhanced and updated functionalities, ensuring a better user experience.
+The Android operating system was chosen due to its large user base. This project targets Android version 7.0 (API level 24) as the minimum requirement. However, targeting Android 12 (API level 31) or higher will provide a better user experience with improved features and performance optimizations.
 
 The app supports vertical orientation only, as this provides a more comfortable and visually appealing graphical representation for users. This choice enhances navigation and usability within the app.
 

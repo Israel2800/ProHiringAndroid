@@ -10,7 +10,7 @@ The ProHiring app allows companies to register and create unique profiles with s
 ## ProHiring Logo
 
 <p align="center">
-    <img src="./src/main/res/drawable/logo_pro_hiring.png" alt="Logo" width="180" height="150">
+    <img src="app/src/main/res/drawable/logo_pro_hiring.png" alt="Logo" width="180" height="150">
 </p>
 
 The ProHiring logo features three primary tools commonly used for tasks inside and outside the home: a shovel, a hammer, and a wrench. These tools are unified by a semicircular shape in a light aqua-green color. The tools are placed beneath a triangle symbolizing the roof of a house or property.
